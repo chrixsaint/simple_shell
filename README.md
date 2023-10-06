@@ -245,6 +245,7 @@ All built-in functions except printenv are executed by the parent process. The r
 
 ## AUTHORS
 This project is a collaboration between:
+
 Christian Ochenehi Peter --> [My GitHub Profile](https://github.com/chrixsaint)
 
 Godwin Ojukwu --> [My Github Profile](https://github.com/Emeriego)
