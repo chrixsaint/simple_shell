@@ -1,0 +1,35 @@
+#include "shell.h"
+
+
+/**
+ * defineInfo - initializes info_t struct
+ * @info: struct address
+ * @av: argument vector
+ * getinfo.c
+ */
+void defineInfo(info_t *info, char **av)
+{
+	int i = 0;
+
+	info->fname = av[0];
+	if (info->arg)
+	{
+		info->argv = tokenize_string(info->arg, " \t");
+		if (!info->argv)
+		{
+
+			info->argv = malloc(sizeof(char *) * 2);
+			if (info->argv)
+			{
+				info->argv[0] = duplicate_strng(info->arg);
+				info->argv[1] = NULL;
+			}
+		}
+		for (i = 0; info->argv && info->argv[i]; i++)
+			;
+		info->argc = i;
+
+		replace_alias(info);
+		updateVariableValues(info);
+	}
+}
