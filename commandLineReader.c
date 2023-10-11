@@ -1,50 +1,62 @@
 #include "shell.h"
 
-
 /**
- * commandLineReader - gets the next line of input from STDIN
- * @info: parameter struct
- * @ptr: address of pointer to buffer, preallocated or NULL
- * @length: size of preallocated ptr buffer if not NULL
+ * commandLineReader - Reads the next line of input from STDIN into a buffer.
+ * @info: Structure containing potential arguments. Used to maintain
+ *        constant function prototype.
+ * @ptr: Address of a pointer to a buffer where the input will be stored.
+ * @length: Size of the preallocated buffer if not NULL.
  *
- * Return: s
- * getLine.c
+ * This function reads the next line of input from STDIN and stores it in the
+ * buffer pointed to by `ptr`.
+ *
+ * Return: The number of characters read (positive), 0 if
+ * the end of the file is reached, or -1 on failure.
  */
+
 int commandLineReader(info_t *info, char **ptr, size_t *length)
 {
-	static char buf[READ_BUF_SIZE];
-	static size_t i, len;
-	size_t k;
-	ssize_t r = 0, s = 0;
-	char *p = NULL, *new_p = NULL, *c;
+	char *pee, *cee, *fresh_ptr;
+	static char bupha[READ_BUF_SIZE];
+	size_t kai;
+	static size_t aii, lentt;
+	ssize_t arr, ess;
 
-	p = *ptr;
-	if (p && length)
-		s = *length;
-	if (i == len)
-		i = len = 0;
+	fresh_ptr = NULL;
+	pee = NULL;
+	pee = *ptr;
+	arr = 0, ess = 0;
+	if (pee && length)
+		ess = *length;
+	if (aii == lentt)
+		aii = lentt = 0;
 
-	r = readBufferContent(info, buf, &len);
-	if (r == -1 || (r == 0 && len == 0))
+	arr = readBufferContent(info, bupha, &lentt);
+	if (arr == -1 || (arr == 0 && lentt == 0))
+	{
 		return (-1);
+	}
 
-	c = searchCharInStr(buf + i, '\n');
-	k = c ? 1 + (unsigned int)(c - buf) : len;
-	new_p = resize_memory(p, s, s ? s + k : k + 1);
-	if (!new_p) /* MALLOC FAILURE! */
-		return (p ? free(p), -1 : -1);
+	cee = searchCharInStr(bupha + aii, '\n');
+	kai = cee ? 1 + (unsigned int)(cee - bupha) : lentt;
+	fresh_ptr = resize_memory(pee, ess, ess ? ess + kai : kai + 1);
+	if (fresh_ptr == NULL)
+		return (pee ? free(pee), -1 : -1);
 
-	if (s)
-		concatenateLimitedString(new_p, buf + i, k - i);
+	if (ess)
+	{
+		concatenateLimitedString(fresh_ptr, bupha + aii, kai - aii);
+	}
 	else
-		copyLimitedString(new_p, buf + i, k - i + 1);
+		copyLimitedString(fresh_ptr, bupha + aii, kai - aii + 1);
 
-	s += k - i;
-	i = k;
-	p = new_p;
+	ess += kai - aii;
+	aii = kai;
+	pee = fresh_ptr;
 
 	if (length)
-		*length = s;
-	*ptr = p;
-	return (s);
+		*length = ess;
+	*ptr = pee;
+	return (ess);
 }
+
