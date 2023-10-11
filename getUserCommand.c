@@ -2,47 +2,56 @@
 
 
 /**
- * getUserCommand - gets a line minus the newline
- * @info: parameter struct
+ * getUserCommand - Get a line of input from the user
+ * without the newline character.
+ * @info: Pointer to the parameter struct.
  *
- * Return: bytes read
- * getLine.c
+ * This function reads a line of user input
+ * and removes the newline character.
+ *
+ * Return: The number of bytes read.
  */
+
 ssize_t getUserCommand(info_t *info)
 {
-	static char *buf; /* the ';' command chain buffer */
-	static size_t i, j, len;
+	static size_t aii, jaii, lentt;
 	ssize_t r = 0;
-	char **buf_p = &(info->arg), *p;
+	static char *bupha;
+	char **bupha_ptr, *ptr;
 
+	bupha_ptr = &(info->arg);
 	write_char(BUF_FLUSH);
-	r = manageInputBuffer(info, &buf, &len);
-	if (r == -1) /* EOF */
-		return (-1);
-	if (len)	/* we have commands left in the chain buffer */
+	r = manageInputBuffer(info, &bupha, &lentt);
+	if (r == -1)
 	{
-		j = i; /* init new iterator to current buf position */
-		p = buf + i; /* get pointer for return */
+		return (-1);
+	}
+	if (lentt)
+	{
+		jaii = aii;
+		ptr = bupha + aii;
 
-		examine_chain(info, buf, &j, i, len);
-		while (j < len) /* iterate to semicolon or end */
+		examine_chain(info, bupha, &jaii, aii, lentt);
+		while (jaii < lentt)
 		{
-			if (check_chain_delimiter(info, buf, &j))
+			if (check_chain_delimiter(info, bupha, &jaii))
+			{
 				break;
-			j++;
+			}
+			jaii++;
 		}
 
-		i = j + 1; /* increment past nulled ';'' */
-		if (i >= len) /* reached end of buffer? */
+		aii = jaii + 1;
+		if (aii >= lentt)
 		{
-			i = len = 0; /* reset position and length */
+			aii = lentt = 0;
 			info->cmd_buf_type = CMD_NORM;
 		}
 
-		*buf_p = p; /* pass back pointer to current command position */
-		return (stringlength(p)); /* return length of current command */
+		*bupha_ptr = ptr;
+		return (stringlength(ptr));
 	}
 
-	*buf_p = buf; /* else not a chain, pass back buffer from commandLineReader() */
-	return (r); /* return length of buffer from commandLineReader() */
+	*bupha_ptr = bupha;
+	return (r);
 }
