@@ -2,28 +2,36 @@
 
 
 /**
- * lookup_cmd - finds a command in PATH
- * @info: the parameter & return info struct
+ * lookup_cmd - Find and execute a command in the PATH.
+ * @info: The parameter & return info struct.
  *
- * Return: void
- * shell_loop.c
+ * This function attempts to locate and execute a command specified in
+ * the argument vector within the directories listed in the
+ * PATH environment variable.
+ *
+ * Return: void.
  */
 void lookup_cmd(info_t *info)
 {
-	char *path = NULL;
-	int i, k;
+	int aii, kaii;
+	char *path;
 
+	path = NULL;
 	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
 	{
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!delimiterCheck(info->arg[i], " \t\n"))
-			k++;
-	if (!k)
+	for (aii = 0, kaii = 0; info->arg[aii]; aii++)
+		if (!delimiterCheck(info->arg[aii], " \t\n"))
+		{
+			kaii++;
+		}
+	if (!kaii)
+	{
 		return;
+	}
 
 	path = get_path(info, fetchEnvironVariable(info, "PATH="), info->argv[0]);
 	if (path)
