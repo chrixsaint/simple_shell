@@ -2,22 +2,22 @@
 
 
 /**
- * renumber_history - renumbers the history linked list after changes
- * @info: Structure containing potential arguments. Used to maintain
- *
- * Return: the new histcount
+ * renumber_history - reenumerates linked list.
+ * @info: users arguments.
+ * Return: returns new hist count
  * history.c
  */
 int renumber_history(info_t *info)
 {
-	list_t *node = info->history;
-	int i = 0;
-
-	while (node)
+	int idx = 0;
+	list_t *n;
+	
+	n = info->history;
+	while (n)
 	{
-		node->num = i++;
-		node = node->next;
+		n->num = idx++;
+		n = n->next;
 	}
-	return (info->histcount = i);
+	return (info->histcount = idx);
 }
 

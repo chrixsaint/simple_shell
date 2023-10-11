@@ -1,20 +1,21 @@
 #include "shell.h"
-
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
- * @buf: address of the string to modify
- *
- * Return: Always 0;
+ * remove_comments - this replaces 1st occurence of '#' with null char
+ * @buffer: ptr to string being modified
+ * Return: returns 0.
  */
-void remove_comments(char *buf)
+void remove_comments(char *buffer)
 {
-	int i;
+	int idx = 0;
 
-	for (i = 0; buf[i] != '\0'; i++)
-		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+	while (buffer[idx] != '\0')
+	{
+		if (buffer[idx] == '#' && (!idx || buffer[idx - 1] == ' '))
 		{
-			buf[i] = '\0';
+			buffer[idx] = '\0';
 			break;
 		}
+		idx++;
+	}
 }
 

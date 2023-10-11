@@ -1,17 +1,15 @@
 #include "shell.h"
-
-
 /**
- * print_list_nodes - prints all elements of a list_t linked list
- * @h: pointer to first node
- *
- * Return: size of list
+ * print_list_nodes - writes elements of list
+ * @h: ptr to start node
+ * Return: returns sizeof list
  * lists1.c
  */
 size_t print_list_nodes(const list_t *h)
 {
-	size_t i = 0;
+	size_t idx;
 
+	idx = 0;
 	while (h)
 	{
 		write_string(changeNumberBase(h->num, 10, 0));
@@ -20,9 +18,9 @@ size_t print_list_nodes(const list_t *h)
 		write_string(h->str ? h->str : "(nil)");
 		write_string("\n");
 		h = h->next;
-		i++;
+		idx++;
 	}
-	return (i);
+	return (idx);
 }
 
 

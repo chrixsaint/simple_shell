@@ -1,32 +1,34 @@
 #include "shell.h"
-
-
 /**
- * replace_alias - replaces an aliases in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
+ * replace_alias - changes aliases from the tokenized str.
+ * @info: users args.
+ * Return: returns 1 if replaced.
  * vars.c
  */
 int replace_alias(info_t *info)
 {
-	int i;
-	list_t *node;
-	char *p;
+	list_t *n;
+	int idx = 0;
+	char *ptr;
 
-	for (i = 0; i < 10; i++)
+	while (idx < 10)
 	{
-		node = node_starts_with(info->alias, info->argv[0], '=');
-		if (!node)
+		n = node_starts_with(info->alias, info->argv[0], '=');
+		if (!n)
+		{
 			return (0);
+		}
 		free(info->argv[0]);
-		p = searchCharInStr(node->str, '=');
-		if (!p)
+		ptr = searchCharInStr(n->str, '=');
+		if (!ptr)
 			return (0);
-		p = duplicate_strng(p + 1);
-		if (!p)
+		ptr = duplicate_strng(ptr + 1);
+		if (!ptr)
+		{
 			return (0);
-		info->argv[0] = p;
+		}
+		info->argv[0] = ptr;
+		idx++;
 	}
 	return (1);
 }

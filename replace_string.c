@@ -1,18 +1,15 @@
 #include "shell.h"
-
-
 /**
- * replace_string - replaces string
- * @old: address of old string
- * @new: new string
- *
- * Return: 1 if replaced, 0 otherwise
+ * replace_string - this func tends to replace strs
+ * @prev: ptr to old str
+ * @new: new str
+ * Return: returns 1 if str was replaced.
  * vars.c
  */
-int replace_string(char **old, char *new)
+int replace_string(char **prev, char *new)
 {
-	free(*old);
-	*old = new;
+	free(*prev);
+	*prev = new;
 	return (1);
 }
 

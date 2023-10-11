@@ -1,19 +1,13 @@
 #include "shell.h"
-
-
 /**
- * search_builtin_cmd - finds a builtin command
- * @info: the parameter & return info struct
- *
- * Return: -1 if builtin not found,
- *			0 if builtin executed successfully,
- *			1 if builtin found but not successful,
- *			-2 if builtin signals exit()
+ * search_builtin_cmd - looks for builtin cmds
+ * @my_args: users args.
+ * Return: returns 0 if success.
  * shell_loop.c
  */
-int search_builtin_cmd(info_t *info)
+int search_builtin_cmd(info_t *my_args)
 {
-	int i, built_in_ret = -1;
+	int idx, cmd_results = -1;
 	builtin_table builtintbl[] = {
 		{"exit", terminateShell},
 		{"env", processEnvironVariable},
@@ -26,14 +20,14 @@ int search_builtin_cmd(info_t *info)
 		{NULL, NULL}
 	};
 
-	for (i = 0; builtintbl[i].type; i++)
-		if (string_compare(info->argv[0], builtintbl[i].type) == 0)
+	for (idx = 0; builtintbl[idx].type; idx++)
+		if (string_compare(my_args->argv[0], builtintbl[idx].type) == 0)
 		{
-			info->line_count++;
-			built_in_ret = builtintbl[i].func(info);
+			my_args->line_count++;
+			cmd_results = builtintbl[idx].func(my_args);
 			break;
 		}
-	return (built_in_ret);
+	return (cmd_results);
 }
 
 

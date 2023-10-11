@@ -1,34 +1,34 @@
 #include "shell.h"
-
-
 /**
- * resize_memory - reallocates a block of memory
- * @ptr: pointer to previous malloc'ated block
- * @old_size: byte size of previous block
- * @new_size: byte size of new block
- *
+ * resize_memory - reassigns mry bloc.
+ * @ptr: ptr to prev mry block
+ * @prev_size: mry sizeof previous.
+ * @new_size: new size.
  * Return: pointer to da ol'block nameen.
  * realloc.c
  */
-void *resize_memory(void *ptr, unsigned int old_size, unsigned int new_size)
+void *resize_memory(void *ptr, unsigned int prev_size, unsigned int new_size)
 {
-	char *p;
+	char *pt;
 
-	if (!ptr)
+	if (ptr == NULL)
 		return (malloc(new_size));
 	if (!new_size)
 		return (free(ptr), NULL);
-	if (new_size == old_size)
+	if (new_size == prev_size)
+	{
 		return (ptr);
+	}
 
-	p = malloc(new_size);
-	if (!p)
+	pt = malloc(new_size);
+	if (pt == NULL)
+	{
 		return (NULL);
-
-	old_size = old_size < new_size ? old_size : new_size;
-	while (old_size--)
-		p[old_size] = ((char *)ptr)[old_size];
+	}
+	prev_size = prev_size < new_size ? prev_size : new_size;
+	while (prev_size--)
+		pt[prev_size] = ((char *)ptr)[prev_size];
 	free(ptr);
-	return (p);
+	return (pt);
 }
 

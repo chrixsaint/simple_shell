@@ -1,25 +1,20 @@
 #include "shell.h"
-
-
 /**
- * print_string_nodes - prints only the str element of a list_t linked list
- * @h: pointer to first node
- *
- * Return: size of list
+ * print_string_nodes - outputs str member of list
+ * @hd: pointer to starting node
+ * Return: returns sizeof ls
  * lists.c
- */
-size_t print_string_nodes(const list_t *h)
+ */size_t print_string_nodes(const list_t *hd)
 {
-	size_t i = 0;
+	size_t idx;
 
-	while (h)
+	for (idx = 0; hd; idx++)
 	{
-		write_string(h->str ? h->str : "(nil)");
+		write_string(hd->str ? hd->str : "nill");
 		write_string("\n");
-		h = h->next;
-		i++;
+		hd = hd->next;
 	}
-	return (i);
+	return (idx);
 }
 
 
