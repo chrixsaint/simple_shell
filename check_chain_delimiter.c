@@ -1,14 +1,22 @@
 #include "shell.h"
 
 /**
- * check_chain_delimiter - test if current char in buffer is a chain delimeter
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
+ * check_chain_delimiter - Tests if the current character in the buffer is a chain delimiter.
+ * @info: The parameter struct.
+ * @buf: The character buffer containing the command.
+ * @p: The address of the current position in the buffer.
  *
- * Return: 1 if chain delimeter, 0 otherwise
- * vars.c
+ * This function checks if the current character in the buffer 'buf' at the position 'p'
+ * represents a chain delimiter. Chain delimiters are special characters that indicate
+ * the chaining of commands (e.g., `|`, `||`, `&`, `&&`, or `;`).
+ *
+ * If a chain delimiter is found, it modifies the buffer by replacing the delimiter with
+ * a null character (making it a separate command) and updates the 'info' struct with the
+ * type of chain delimiter found (e.g., CMD_OR, CMD_AND, or CMD_CHAIN).
+ *
+ * Return: 1 if a chain delimiter is found, 0 otherwise.
  */
+
 int check_chain_delimiter(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
