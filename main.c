@@ -1,26 +1,26 @@
 #include "shell.h"
 
 /**
- * main - entry point
- * @ac: arg count
- * @av: arg vector
- *
- * Return: 0 on success, 1 on error
+ * main - Entry point for the shell program.
+ * @ac: Argument count that is number of command-line arguments
+ * @av: Argument vector that is array of command-line argument strings.
+
+ * Return: 0 on success, 1 on error.
  */
 int main(int ac, char **av)
 {
-	info_t info[] = { INFO_INIT };
-	int fd = 2;
-
+	info_t informat[] = { INFO_INIT };
+	int effd = 2;
+	
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
-		: "=r" (fd)
-		: "r" (fd));
+		: "=r" (effd)
+		: "r" (effd));
 
 	if (ac == 2)
 	{
-		fd = open(av[1], O_RDONLY);
-		if (fd == -1)
+		effd = open(av[1], O_RDONLY);
+		if (effd == -1)
 		{
 			if (errno == EACCES)
 				exit(126);
@@ -35,10 +35,10 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		informat->readfd = effd;
 	}
-	populate_env_list(info);
-	loadCommandHistory(info);
-	shell_main_process(info, av);
+	populate_env_list(informat);
+	loadCommandHistory(informat);
+	shell_main_process(informat, av);
 	return (EXIT_SUCCESS);
 }
