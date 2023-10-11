@@ -1,19 +1,24 @@
 #include "shell.h"
 
 /**
- * helpGuide - changes the current directory of the process
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
- * builtin.c
+ * helpGuide - Get a line of input from the
+ * user without the newline character.
+ * @info: Pointer to the parameter struct.
+ *
+ * This function reads a line of user input and
+ * removes the newline character.
+ *
+ * Return: The number of bytes read.
  */
 int helpGuide(info_t *info)
 {
-	char **arg_array;
+	char **arg_arr;
 
-	arg_array = info->argv;
+	arg_arr = info->argv;
 	write_string("help call works. Function not yet implemented \n");
 	if (0)
-		write_string(*arg_array); /* temp att_unused workaround */
+	{
+		write_string(*arg_arr);
+	}
 	return (0);
 }
