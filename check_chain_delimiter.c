@@ -14,9 +14,8 @@
  * commands (e.g., `|`, `||`, `&`, `&&`, or `;`).
  *
  * If a chain delimiter is found, it modifies the buffer
- * by replacing the delimiter with a null character
- * (making it a separate command) and updates
- * the 'info' struct with the type of chain delimiter
+ * by replacing the delimiter with a null character and
+ * updates the 'info' struct with the type of chain delimiter
  * found (e.g., CMD_OR, CMD_AND, or CMD_CHAIN).
  *
  * Return: 1 if a chain delimiter is found, 0 otherwise.
