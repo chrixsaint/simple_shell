@@ -18,9 +18,9 @@
  */
 int aliasHandler(info_t *info)
 {
-	int q = 0;
-	char *p = NULL;
 	list_t *n = NULL;
+	int q = 0;
+	char *r = NULL;
 
 	q = 1;
 	if (info->argc == 1)
@@ -35,14 +35,14 @@ int aliasHandler(info_t *info)
 	}
 	while (info->argv[q])
 	{
-		p = searchCharInStr(info->argv[q], '=');
-		if (p)
+		r = searchCharInStr(info->argv[q], '=');
+		if (r != NULL)
 		{
 			initializeAlias(info, info->argv[q]);
 		}
 		else
 			printAliasString(node_starts_with(info->alias, info->argv[q], '='));
-			q++;
+		q++;
 	}
 
 	return (0);
