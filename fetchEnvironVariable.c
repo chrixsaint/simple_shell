@@ -1,24 +1,32 @@
 #include "shell.h"
 
+
 /**
- * fetchEnvironVariable - gets the value of an environ variable
- * @info: Structure containing potential arguments. Used to maintain
- * @name: env var name
+ * fetchEnvironVariable - Retrieves the value of an environment variable.
+ * @info: The structure containing potential arguments, used to maintain
+ *        constant function prototype.
+ * @name: The name of the environment variable to retrieve.
  *
- * Return: the value
- * environ.c
+ * This function searches for the specified environment
+ * variable by name and returns its value.
+ *
+ * Return: A pointer to the value of the environment
+ * variable or NULL if not found.
  */
 char *fetchEnvironVariable(info_t *info, const char *name)
 {
-	list_t *node = info->env;
-	char *p;
+	list_t *nnodde;
+	char *ptr;
 
-	while (node)
+	nnodde = info->env;
+	while (nnodde)
 	{
-		p = prefix_match(node->str, name);
-		if (p && *p)
-			return (p);
-		node = node->next;
+		ptr = prefix_match(nnodde->str, name);
+		if (ptr && *ptr)
+		{
+			return (ptr);
+		}
+		nnodde = nnodde->next;
 	}
 	return (NULL);
 }
