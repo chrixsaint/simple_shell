@@ -1,30 +1,37 @@
 #include "shell.h"
 
+
 /**
- **copyLimitedString - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
- *@n: the amount of characters to be copied
- *Return: the concatenated string
+ * copyLimitedString - Copies a limited number of characters
+ * from a src string to a destination.
+ * @dest: The destination string to be copied to.
+ * @src: The source string.
+ * @n: The maximum number of characters to be copied.
+ *
+ * This function copies a maximum of `n` characters from
+ * the source string `src` to the destination
+ * string `dest`. It ensures that `dest` is null-terminated.
+ *
+ * Return: A pointer to the destination string `dest`.
  */
+
 char *copyLimitedString(char *dest, char *src, int n)
 {
-	int i, j;
-	char *s = dest;
+	char *s;
+	int aii, jaii;
 
-	i = 0;
-	while (src[i] != '\0' && i < n - 1)
+	s = dest;
+	for (aii = 0; src[aii] != '\0' && aii < n - 1; aii++)
 	{
-		dest[i] = src[i];
-		i++;
+		dest[aii] = src[aii];
 	}
-	if (i < n)
+	if (aii < n)
 	{
-		j = i;
-		while (j < n)
+		jaii = aii;
+		while (jaii < n)
 		{
-			dest[j] = '\0';
-			j++;
+			dest[jaii] = '\0';
+			jaii++;
 		}
 	}
 	return (s);
