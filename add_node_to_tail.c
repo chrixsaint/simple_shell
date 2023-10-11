@@ -1,44 +1,47 @@
 #include "shell.h"
 
-
 /**
- * add_node_to_tail - adds a node to the end of the list
- * @head: address of pointer to head node
- * @str: str field of node
- * @num: node index used by history
+ * add_node_to_tail - Adds a node to the end of a linked list.
+ * @head: Address of a pointer to the head node.
+ * @str: The string to be stored in the new node.
+ * @num: Node index used by history (if applicable).
  *
- * Return: size of list
- * lists.c
+ * This function creates a new node and appends it to the end of the list.
+ *
+ * Return: A pointer to the newly created node, or NULL on failure.
  */
+
 list_t *add_node_to_tail(list_t **head, const char *str, int num)
 {
-	list_t *new_node, *node;
+	list_t *n, *new_head;
 
-	if (!head)
+	if (head == NULL)
 		return (NULL);
 
-	node = *head;
-	new_node = malloc(sizeof(list_t));
-	if (!new_node)
+	n = *head;
+	new_head = malloc(sizeof(list_t));
+	if (new_head == NULL)
 		return (NULL);
-	assign_memory((void *)new_node, 0, sizeof(list_t));
-	new_node->num = num;
+	assign_memory((void *)new_head, 0, sizeof(list_t));
+	new_head->num = num;
 	if (str)
 	{
-		new_node->str = duplicate_strng(str);
-		if (!new_node->str)
+		new_head->str = duplicate_strng(str);
+		if (new_head->str == NULL)
 		{
-			free(new_node);
+			free(new_head);
 			return (NULL);
 		}
 	}
-	if (node)
+	if (n != NULL)
 	{
-		while (node->next)
-			node = node->next;
-		node->next = new_node;
+		while (n->next)
+			n = n->next;
+		n->next = new_head;
 	}
 	else
-		*head = new_node;
-	return (new_node);
+	{
+		*head = new_head;
+	}
+	return (new_head);
 }
