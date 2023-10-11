@@ -1,23 +1,31 @@
 #include "shell.h"
 
 /**
- * clearEnvVar - Remove an environment variable
+ * clearEnvVar - Remove one or more environment variables.
  * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
- * environ.c
+ * constant function prototype.
+ *
+ * This function removes one or more environment variables
+ * specified as arguments.
+ * If no arguments are provided, it displays an error message.
+ *
+ * Return: 0 on success, 1 on error.
  */
 int clearEnvVar(info_t *info)
 {
-	int i;
+	int q;
 
+	q = 1;
 	if (info->argc == 1)
 	{
 		errorOutput("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
-		resetEnvVar(info, info->argv[i]);
+	while (q <= info->argc)
+	{
+		resetEnvVar(info, info->argv[q]);
+		q++;
+	}
 
 	return (0);
 }
