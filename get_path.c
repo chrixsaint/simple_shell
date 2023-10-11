@@ -2,21 +2,27 @@
 
 
 /**
- * get_path - finds this cmd in the PATH string
- * @info: the info struct
- * @pathstr: the PATH string
- * @cmd: the cmd to find
+ * get_path - Find the full path of a command in the PATH string.
+ * @info: Pointer to the info struct.
+ * @pathstr: The PATH string to search in.
+ * @cmd: The command to find in the PATH.
  *
- * Return: full path of cmd if found or NULL
- * parser.c
+ * This function searches for the specified command in the given
+ * PATH string and returns its full path if found.
+ *
+ * Return: The full path of the command if found, or NULL if not found.
  */
 char *get_path(info_t *info, char *pathstr, char *cmd)
 {
-	int i = 0, curr_pos = 0;
-	char *path;
+	int aii = 0, pre_positn;
+	char *pattt;
 
-	if (!pathstr)
+	pre_positn = 0;
+	aii = 0;
+	if (pathstr == NULL)
+	{
 		return (NULL);
+	}
 	if ((stringlength(cmd) > 2) && prefix_match(cmd, "./"))
 	{
 		if (command_check(info, cmd))
@@ -24,23 +30,25 @@ char *get_path(info_t *info, char *pathstr, char *cmd)
 	}
 	while (1)
 	{
-		if (!pathstr[i] || pathstr[i] == ':')
+		if (!pathstr[aii] || pathstr[aii] == ':')
 		{
-			path = replicate_chars(pathstr, curr_pos, i);
-			if (!*path)
-				merge_strings(path, cmd);
+			pattt = replicate_chars(pathstr, pre_positn, aii);
+			if (!*pattt)
+				merge_strings(pattt, cmd);
 			else
 			{
-				merge_strings(path, "/");
-				merge_strings(path, cmd);
+				merge_strings(pattt, "/");
+				merge_strings(pattt, cmd);
 			}
-			if (command_check(info, path))
-				return (path);
-			if (!pathstr[i])
+			if (command_check(info, pattt))
+			{
+				return (pattt);
+			}
+			if (!pathstr[aii])
 				break;
-			curr_pos = i;
+			pre_positn = aii;
 		}
-		i++;
+		aii++;
 	}
 	return (NULL);
 }
