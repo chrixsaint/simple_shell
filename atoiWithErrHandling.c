@@ -1,29 +1,43 @@
 #include "shell.h"
 
+
 /**
- * atoiWithErrHandling - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- *       -1 on error
+ * atoiWithErrHandling - Converts a string to an
+ * integer with error handling.
+ * @s: The string to be converted.
+ *
+ * This function attempts to convert the given string 's' to an
+ * integer. If successful, it returns the converted integer.
+ * If the string contains non-numeric characters or the outcome
+ * is out of the range of `int`, it returns -1 to indicate an error.
+ *
+ * Return: The converted integer if successful, -1 on error.
  */
+
 int atoiWithErrHandling(char *s)
 {
-	int i = 0;
-	unsigned long int result = 0;
+	unsigned long int outcome = 0;
+	int q;
 
+	q = 0;
 	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; i++)
 	{
-		if (s[i] >= '0' && s[i] <= '9')
+		s++;
+	}
+	while (s[q] != '\0')
+	{
+		if (s[q] >= '0' && s[q] <= '9')
 		{
-			result *= 10;
-			result += (s[i] - '0');
-			if (result > INT_MAX)
+			outcome *= 10;
+			outcome += (s[q] - '0');
+			if (outcome > INT_MAX)
 				return (-1);
 		}
 		else
+		{
 			return (-1);
+		}
+		q++;
 	}
-	return (result);
+	return (outcome);
 }
