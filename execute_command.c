@@ -2,11 +2,15 @@
 
 
 /**
- * execute_command - forks a an exec thread to run cmd
- * @info: the parameter & return info struct
+ * execute_command - Forks a child process to run the specified command.
+ * @info: The parameter struct containing command and execution information.
  *
- * Return: void
- * shell_loop.c
+ * This function is responsible for forking a child process and
+ * executing a command in that child process using `execve`.
+ * The command's path, arguments, and environment are set up using
+ * the information stored in the `info` struct.
+ *
+ * Return: void.
  */
 void execute_command(info_t *info)
 {
@@ -15,7 +19,6 @@ void execute_command(info_t *info)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		/* TODO: PUT ERROR FUNCTION */
 		perror("Error:");
 		return;
 	}
@@ -25,10 +28,11 @@ void execute_command(info_t *info)
 		{
 			deallocateInfo(info, 1);
 			if (errno == EACCES)
+			{
 				exit(126);
+			}
 			exit(1);
 		}
-		/* TODO: PUT ERROR FUNCTION */
 	}
 	else
 	{
@@ -37,7 +41,9 @@ void execute_command(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
+			{
 				echo_error(info, "Permission denied\n");
+			}
 		}
 	}
 }
