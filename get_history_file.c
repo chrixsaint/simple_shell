@@ -1,11 +1,14 @@
 #include "shell.h"
 
 /**
- * get_history_file - gets the history file
- * @info: parameter struct
+ * get_history_file - Retrieve the path to the history file.
+ * @info: The parameter struct containing potential arguments.
  *
- * Return: allocated string containg history file
- * history.c
+ * This function constructs the path to the history file
+ * using the user's home directory and the predefined history file name.
+ *
+ * Return: A dynamically allocated string containing
+ * the full path to the history file.
  */
 
 char *get_history_file(info_t *info)
@@ -15,7 +18,8 @@ char *get_history_file(info_t *info)
 	dir = fetchEnvironVariable(info, "HOME=");
 	if (!dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (stringlength(dir) + stringlength(HIST_FILE) + 2));
+	buf =
+		malloc(sizeof(char) * (stringlength(dir) + stringlength(HIST_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
