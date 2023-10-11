@@ -1,35 +1,35 @@
 #include "shell.h"
-
-
 /**
  * resetEnvVar - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: 1 on delete, 0 otherwise
- * @var: the string env var property
+ * @info: users potential arguments.
+ * @field: env field field.
+ *  Return: returns 1 on delet.
  * getenv.c
  */
-int resetEnvVar(info_t *info, char *var)
+int resetEnvVar(info_t *info, char *field)
 {
-	list_t *node = info->env;
-	size_t i = 0;
+	size_t idx = 0;
+	list_t *n;
 	char *p;
 
-	if (!node || !var)
+	n = info->env;
+	if (!n || !field)
 		return (0);
 
-	while (node)
+	while (n)
 	{
-		p = prefix_match(node->str, var);
+		p = prefix_match(n->str, field);
 		if (p && *p == '=')
 		{
-			info->env_changed = delete_node_at_index(&(info->env), i);
-			i = 0;
-			node = info->env;
+			info->env_changed = delete_node_at_index(&(info->env), idx);
+			idx = 0;
+			n = info->env;
 			continue;
 		}
-		node = node->next;
-		i++;
+		n = n->next;
+		idx++;
 	}
 	return (info->env_changed);
 }
+
+

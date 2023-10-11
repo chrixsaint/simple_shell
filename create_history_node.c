@@ -30,3 +30,5 @@ int create_history_node(info_t *info, char *buf, int linecount)
 	}
 	return (0);
 }
+
+

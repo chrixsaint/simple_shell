@@ -1,22 +1,20 @@
 #include "shell.h"
-
-
 /**
- *write_string - prints an input string
- *@str: the string to be printed
- *
- * Return: Nothing
+ *write_string - writes str input
+ *@str: str input
+ * Return: returns void.
  * string1.c
  */
 void write_string(char *str)
 {
-	int i = 0;
+	int idx = 1;
 
-	if (!str)
-		return;
-	while (str[i] != '\0')
+	if (str == NULL)
 	{
-		write_char(str[i]);
-		i++;
+		return;
 	}
+	for (idx = 0; str[idx] != '\0'; idx++)
+		write_char(str[idx]);
 }
+
+

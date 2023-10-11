@@ -1,25 +1,31 @@
 #include "shell.h"
 
 /**
- * printAliasString - prints an alias string
- * @node: the alias node
- *
- * Return: Always 0 on success, 1 on error
+ * printAliasString - displays alias str
+ * @node: alias node
+ * Return: returns 0.
  * builtin1.c
  */
 int printAliasString(list_t *node)
 {
-	char *p = NULL, *a = NULL;
+	char *pt = NULL;
+	char *zend = NULL;
 
 	if (node)
 	{
-		p = searchCharInStr(node->str, '=');
-		for (a = node->str; a <= p; a++)
-			write_char(*a);
+		pt = searchCharInStr(node->str, '=');
+		zend = node->str;
+		while (zend <= pt)
+		{
+			write_char(*zend);
+			zend++;
+		}
 		write_char('\'');
-		write_string(p + 1);
+		write_string(pt + 1);
 		write_string("'\n");
 		return (0);
 	}
 	return (1);
 }
+
+

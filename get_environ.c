@@ -21,3 +21,5 @@ char **get_environ(info_t *info)
 
 	return (info->environ);
 }
+
+

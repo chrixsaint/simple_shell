@@ -34,3 +34,5 @@ char *duplicate_strng(const char *str)
 		reset[lentt] = *--str;
 	return (reset);
 }
+
+

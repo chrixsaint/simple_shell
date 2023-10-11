@@ -19,3 +19,4 @@ char *merge_strings(char *dest, char *src)
 	*dest = *src;
 	return (ret);
 }
+

@@ -26,3 +26,5 @@ char *copy_str(char *dest, char *src)
 	dest[aii] = 0;
 	return (dest);
 }
+
+

@@ -40,3 +40,4 @@ void deallocateInfo(info_t *info, int all)
 		write_char(BUF_FLUSH);
 	}
 }
+

@@ -42,3 +42,4 @@ int main(int ac, char **av)
 	shell_main_process(informat, av);
 	return (EXIT_SUCCESS);
 }
+

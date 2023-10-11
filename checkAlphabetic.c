@@ -21,3 +21,4 @@ int checkAlphabetic(int c)
 		return (0);
 	}
 }
+

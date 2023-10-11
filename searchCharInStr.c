@@ -1,18 +1,17 @@
 #include "shell.h"
-
-
 /**
- **searchCharInStr - locates a character in a string
- *@s: the string to be parsed
- *@c: the character to look for
- *Return: (s) a pointer to the memory area s
+ **searchCharInStr - picks character in str
+ *@str: string to be checked.
+ *@ch: char to be searched for.
+ *Return: returns ptr to mry.
  */
-char *searchCharInStr(char *s, char c)
+char *searchCharInStr(char *str, char ch)
 {
 	do {
-		if (*s == c)
-			return (s);
-	} while (*s++ != '\0');
+		if (*str == ch)
+			return (str);
+	} while (*str++ != '\0');
 
 	return (NULL);
 }
+

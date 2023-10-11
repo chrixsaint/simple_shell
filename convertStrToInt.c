@@ -43,5 +43,7 @@ int convertStrToInt(char *s)
 	else
 		display = outcome;
 
+
 	return (display);
 }
+

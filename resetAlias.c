@@ -1,25 +1,28 @@
 #include "shell.h"
-
 /**
- * resetAlias - sets alias to string
- * @info: parameter struct
- * @str: the string alias
- *
- * Return: Always 0 on success, 1 on error
- * builtin1.c
+ * resetAlias - alias is converted to string
+ * @info: users args.
+ * @str: alias str.
+ * Return: returns 0 on succes.
+ * builtin1.ctr
  */
 int resetAlias(info_t *info, char *str)
 {
-	char *p, c;
-	int ret;
+	char *my_ptr;
+	char ctr;
+	int result;
 
-	p = searchCharInStr(str, '=');
-	if (!p)
+	my_ptr = searchCharInStr(str, '=');
+	if (!my_ptr)
+	{
 		return (1);
-	c = *p;
-	*p = 0;
-	ret = delete_node_at_index(&(info->alias),
+	}
+	ctr = *my_ptr;
+	*my_ptr = 0;
+	result = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = c;
-	return (ret);
+	*my_ptr = ctr;
+	return (result);
 }
+
+

@@ -1,24 +1,23 @@
 #include "shell.h"
-
-
 /**
- * writeErrorChar - writes the character c to stderr
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * writeErrorChar - writes error character
+ * @c: Char to be printed.
+ * Return: returns 1 always.
  */
 int writeErrorChar(char c)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buffer[WRITE_BUF_SIZE];
+	static int idx;
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || idx >= WRITE_BUF_SIZE)
 	{
-		write(2, buf, i);
-		i = 0;
+		write(2, buffer, idx);
+		idx = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	{
+		buffer[idx++] = c;
+	}
 	return (1);
 }
+

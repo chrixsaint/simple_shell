@@ -1,23 +1,23 @@
 #include "shell.h"
-
-
 /**
- * replicate_chars - duplicates characters
- * @pathstr: the PATH string
- * @start: starting index
- * @stop: stopping index
- *
- * Return: pointer to new buffer
+ * replicate_chars -  chars are replicated
+ * @pathstr: str PATH.
+ * @start: index to begin.
+ * @stop: index to stop.
+ * Return: returns ptr to str
  * parser.c
  */
 char *replicate_chars(char *pathstr, int start, int stop)
 {
-	static char buf[1024];
-	int i = 0, k = 0;
+	int idx = 0;
+	int ctr = 0;
+	static char buffr[1024];
 
-	for (k = 0, i = start; i < stop; i++)
-		if (pathstr[i] != ':')
-			buf[k++] = pathstr[i];
-	buf[k] = 0;
-	return (buf);
+	for (ctr = 0, idx = start; idx < stop; idx++)
+		if (pathstr[idx] != ':')
+			buffr[ctr++] = pathstr[idx];
+	buffr[ctr] = 0;
+	return (buffr);
 }
+
+

@@ -41,3 +41,5 @@ void defineInfo(info_t *info, char **av)
 		updateVariableValues(info);
 	}
 }
+
+

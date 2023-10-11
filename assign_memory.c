@@ -26,3 +26,5 @@ char *assign_memory(char *s, char b, unsigned int n)
 	}
 	return (s);
 }
+
+

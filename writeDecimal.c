@@ -1,40 +1,45 @@
 #include "shell.h"
-
 /**
- * writeDecimal - function prints a decimal (integer) number (base 10)
- * @input: the input
- * @fd: the filedescriptor to write to
- *
- * Return: number of characters printed
+ * writeDecimal - writes dec number
+ * @input: number input
+ * @fd: file handle
+ * Return: returns the num.
  */
 int writeDecimal(int input, int fd)
 {
-	int (*__putchar)(char) = write_char;
-	int i, count = 0;
-	unsigned int _abs_, current;
+	int idx;
+	int c = 0;
+	int (*prt)(char);
+	size_t a;
+	size_t curr;
 
+	prt = write_char;
 	if (fd == STDERR_FILENO)
-		__putchar = writeErrorChar;
+	{
+		prt = writeErrorChar;
+	}
 	if (input < 0)
 	{
-		_abs_ = -input;
-		__putchar('-');
-		count++;
+		a = -input;
+		prt('-');
+		c++;
 	}
 	else
-		_abs_ = input;
-	current = _abs_;
-	for (i = 1000000000; i > 1; i /= 10)
 	{
-		if (_abs_ / i)
-		{
-			__putchar('0' + current / i);
-			count++;
-		}
-		current %= i;
+		a = input;
 	}
-	__putchar('0' + current);
-	count++;
-
-	return (count);
+	curr = a;
+	for (idx = 1000000000; idx > 1; idx /= 10)
+	{
+		if (a / idx)
+		{
+			prt('0' + curr / idx);
+			c++;
+		}
+		curr %= idx;
+	}
+	c++;
+	prt('0' + curr);
+	return (c);
 }
+
