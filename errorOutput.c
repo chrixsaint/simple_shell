@@ -1,20 +1,24 @@
 #include "shell.h"
 
 /**
- *errorOutput - prints an input string
- * @str: the string to be printed
+ * errorOutput - Prints an error message to the standard error (stderr).
+ * @str: The string to be printed.
  *
- * Return: Nothing
+ * This function is responsible for writing an error message to
+ * the standard error (stderr) output stream.
+ *
+ * Return: Nothing.
  */
+
 void errorOutput(char *str)
 {
-	int i = 0;
+	int aii;
 
-	if (!str)
-		return;
-	while (str[i] != '\0')
+	if (str == NULL)
 	{
-		writeErrorChar(str[i]);
-		i++;
+		return;
 	}
+	for (aii = 0; str[aii] != '\0'; aii++)
+		writeErrorChar(str[aii]);
 }
+
