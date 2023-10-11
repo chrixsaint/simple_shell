@@ -2,42 +2,46 @@
 
 
 /**
- * delete_node_at_index - deletes node at given index
- * @head: address of pointer to first node
- * @index: index of node to delete
+ * delete_node_at_index - Deletes a node at a specified index in a linked list.
+ * @head: Address of a pointer to the first node in the list.
+ * @index: The index of the node to be deleted (0-based).
  *
- * Return: 1 on success, 0 on failure
+ * This function removes a node from a linked list at the specified index.
+ *
+ * Return: 1 on success, 0 on failure (e.g., if the index is out of bounds).
  * lists.c
  */
 int delete_node_at_index(list_t **head, unsigned int index)
 {
-	list_t *node, *prev_node;
-	unsigned int i = 0;
+	unsigned int aii;
+	list_t *nnodde, *prev_node;
 
-	if (!head || !*head)
+
+	if (head == NULL || *head == NULL)
+	{
 		return (0);
+	}
 
 	if (!index)
 	{
-		node = *head;
+		nnodde = *head;
 		*head = (*head)->next;
-		free(node->str);
-		free(node);
+		free(nnodde->str);
+		free(nnodde);
 		return (1);
 	}
-	node = *head;
-	while (node)
+	nnodde = *head;
+	for (aii = 0; nnodde; aii++)
 	{
-		if (i == index)
+		if (aii == index)
 		{
-			prev_node->next = node->next;
-			free(node->str);
-			free(node);
+			prev_node->next = nnodde->next;
+			free(nnodde->str);
+			free(nnodde);
 			return (1);
 		}
-		i++;
-		prev_node = node;
-		node = node->next;
+		prev_node = nnodde;
+		nnodde = nnodde->next;
 	}
 	return (0);
 }
