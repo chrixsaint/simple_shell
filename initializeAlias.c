@@ -1,23 +1,29 @@
 #include "shell.h"
 
-
 /**
- * initializeAlias - sets alias to string
- * @info: parameter struct
- * @str: the string alias
+ * initializeAlias - Sets an alias to a given string.
+ * @info: Structure containing potential arguments.
+ * @str: The string alias in the format "alias_name=alias_value".
  *
- * Return: Always 0 on success, 1 on error
- * builtin1.c
+ * This function initializes an alias in the shell by parsing
+ * the input string and adding it to the alias list.
+ *
+ * Return: 0 on success, 1 on error.
  */
+
 int initializeAlias(info_t *info, char *str)
 {
-	char *p;
+	char *ptr;
 
-	p = searchCharInStr(str, '=');
-	if (!p)
+	ptr = searchCharInStr(str, '=');
+	if (ptr == NULL)
+	{
 		return (1);
-	if (!*++p)
+	}
+	if (*++ptr == NULL)
+	{
 		return (resetAlias(info, str));
+	}
 
 	resetAlias(info, str);
 	return (add_node_to_tail(&(info->alias), str, 0) == NULL);
