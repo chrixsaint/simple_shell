@@ -16,3 +16,4 @@ char *searchCharInStr(char *s, char c)
 
 	return (NULL);
 }
+

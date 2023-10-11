@@ -18,3 +18,5 @@ char *assign_memory(char *s, char b, unsigned int n)
 		s[i] = b;
 	return (s);
 }
+
+

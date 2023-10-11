@@ -1,54 +1,57 @@
 #include "shell.h"
-
-
 /**
- * switchDirectory - changes the current directory of the process
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: Always 0
+ * switchDirectory - converts current pth.
+ * @info: users arguments.
+ * Return: returns 0.
  * builtin.c
  */
 
 int switchDirectory(info_t *info)
 {
-	char *s, *dir, buffer[1024];
-	int chdir_ret;
+	char *str, *pth, bff[1024];
+	int dir_result;
 
-	s = getcwd(buffer, 1024);
-	if (!s)
+	str = getcwd(bff, 1024);
+	if (!str)
 		write_string("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
 	{
-		dir = fetchEnvironVariable(info, "HOME=");
-		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
-				chdir((dir = fetchEnvironVariable(info, "PWD=")) ? dir : "/");
+		pth = fetchEnvironVariable(info, "HOME=");
+		if (!pth)
+		{
+			dir_result = chdir((pth = fetchEnvironVariable(info, "PWD=")) ? pth : "/");
+		}	
 		else
-			chdir_ret = chdir(dir);
+		{
+			dir_result = chdir(pth);
+		}
 	}
 	else if (string_compare(info->argv[1], "-") == 0)
 	{
 		if (!fetchEnvironVariable(info, "OLDPWD="))
 		{
-			write_string(s);
+			write_string(str);
 			write_char('\n');
 			return (1);
 		}
 		write_string(fetchEnvironVariable(info, "OLDPWD=")), write_char('\n');
-		chdir_ret = /* TODO: what should this be? */
-			chdir((dir = fetchEnvironVariable(info, "OLDPWD=")) ? dir : "/");
+		dir_result = chdir((pth = fetchEnvironVariable(info, "OLDPWD=")) ? pth : "/");
 	}
 	else
-		chdir_ret = chdir(info->argv[1]);
-	if (chdir_ret == -1)
 	{
-		echo_error(info, "can't cd to ");
+		dir_result = chdir(info->argv[1]);
+	}
+	if (dir_result == -1)
+	{
+		echo_error(info, "can not change directory to given path ");
 		errorOutput(info->argv[1]), writeErrorChar('\n');
 	}
 	else
 	{
 		defineEnvVar(info, "OLDPWD", fetchEnvironVariable(info, "PWD="));
-		defineEnvVar(info, "PWD", getcwd(buffer, 1024));
+		defineEnvVar(info, "PWD", getcwd(bff, 1024));
 	}
 	return (0);
 }
+
+

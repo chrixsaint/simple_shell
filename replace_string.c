@@ -15,3 +15,4 @@ int replace_string(char **old, char *new)
 	*old = new;
 	return (1);
 }
+

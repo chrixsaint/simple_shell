@@ -30,3 +30,4 @@ int replace_alias(info_t *info)
 	}
 	return (1);
 }
+

@@ -24,3 +24,5 @@ char *duplicate_strng(const char *str)
 		ret[length] = *--str;
 	return (ret);
 }
+
+

@@ -1,24 +1,21 @@
 #include "shell.h"
-
 /**
  * terminateShell - exits the shell
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- *  Return: exits with a given exit status
- *         (0) if info.argv[0] != "exit"
+ * @info: users args.
+ * Return: returns status.
  * builtin.c
  */
 int terminateShell(info_t *info)
 {
-	int exitcheck;
+	int checkExit;
 
-	if (info->argv[1])  /* If there is an exit arguement */
+	if (info->argv[1])
 	{
-		exitcheck = atoiWithErrHandling(info->argv[1]);
-		if (exitcheck == -1)
+		checkExit = atoiWithErrHandling(info->argv[1]);
+		if (checkExit == -1)
 		{
 			info->status = 2;
-			echo_error(info, "Illegal number: ");
+			echo_error(info, "Invalid number: ");
 			errorOutput(info->argv[1]);
 			writeErrorChar('\n');
 			return (1);
@@ -29,3 +26,5 @@ int terminateShell(info_t *info)
 	info->err_num = -1;
 	return (-2);
 }
+
+

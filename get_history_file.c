@@ -24,3 +24,4 @@ char *get_history_file(info_t *info)
 	merge_strings(buf, HIST_FILE);
 	return (buf);
 }
+

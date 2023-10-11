@@ -12,3 +12,5 @@ void eraseInfo(info_t *info)
 	info->path = NULL;
 	info->argc = 0;
 }
+
+

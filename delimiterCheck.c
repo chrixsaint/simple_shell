@@ -15,3 +15,4 @@ int delimiterCheck(char c, char *delim)
 			return (1);
 	return (0);
 }
+

@@ -34,3 +34,4 @@ int convertStrToInt(char *s)
 
 	return (output);
 }
+

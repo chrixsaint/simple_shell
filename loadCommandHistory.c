@@ -50,3 +50,5 @@ int loadCommandHistory(info_t *info)
 	renumber_history(info);
 	return (info->histcount);
 }
+
+

@@ -23,3 +23,5 @@ int resetAlias(info_t *info, char *str)
 	*p = c;
 	return (ret);
 }
+
+

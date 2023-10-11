@@ -18,3 +18,5 @@ void errorOutput(char *str)
 		i++;
 	}
 }
+
+

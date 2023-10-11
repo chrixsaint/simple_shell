@@ -16,3 +16,4 @@ char *prefix_match(const char *haystack, const char *needle)
 			return (NULL);
 	return ((char *)haystack);
 }
+

@@ -1,32 +1,36 @@
 #include "shell.h"
-
-
 /**
- * write_history - creates a file, or appends to an existing file
- * @info: the parameter struct
- *
- * Return: 1 on success, else -1
+ * write_history - makes history file.
+ * @info: users arguments.
+ * Return: returns 1.
  * history.c
  */
 int write_history(info_t *info)
 {
-	ssize_t fd;
-	char *filename = get_history_file(info);
-	list_t *node = NULL;
+	list_t *n = NULL;
+	ssize_t fhandle;
+	char *fname;
 
-	if (!filename)
-		return (-1);
-
-	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
-	free(filename);
-	if (fd == -1)
-		return (-1);
-	for (node = info->history; node; node = node->next)
+	fname = get_history_file(info);
+	if (!fname)
 	{
-		outputStrToFD(node->str, fd);
-		outputCharToFD('\n', fd);
+		return (-1);
 	}
-	outputCharToFD(BUF_FLUSH, fd);
-	close(fd);
+
+	fhandle = open(fname, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	free(fname);
+	if (fhandle == -1)
+		return (-1);
+	n = info->history;
+	while (n != NULL)
+	{
+		outputStrToFD(n->str, fhandle);
+		outputCharToFD('\n', fhandle);
+		n = n->next;
+	}
+	outputCharToFD(BUF_FLUSH, fhandle);
+	close(fhandle);
 	return (1);
 }
+
+

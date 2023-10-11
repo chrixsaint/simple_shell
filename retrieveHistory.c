@@ -13,3 +13,4 @@ int retrieveHistory(info_t *info)
 	print_list_nodes(info->history);
 	return (0);
 }
+

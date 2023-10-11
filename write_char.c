@@ -1,25 +1,24 @@
 #include "shell.h"
-
-
 /**
- * write_char - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * write_char - displays char c.
+ * @c: char to disp.
+ * Return: returns 1.
  * string1.c
  */
 int write_char(char c)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buffer[WRITE_BUF_SIZE];
+	static int idx;
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || idx >= WRITE_BUF_SIZE)
 	{
-		write(1, buf, i);
-		i = 0;
+		write(1, buffer, idx);
+		idx = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	{
+		buffer[idx++] = c;
+	}
 	return (1);
 }
+

@@ -1,11 +1,8 @@
 #include"shell.h"
-
-
 /**
- * sigintHandler - blocks ctrl-C
- * @sig_num: the signal number
- *
- * Return: void
+ * sigintHandler - stops ctrl-C
+ * @sig_num: signal digit
+ * Return: returns void
  * getLine.c
  */
 void sigintHandler(__attribute__((unused))int sig_num)
@@ -14,3 +11,4 @@ void sigintHandler(__attribute__((unused))int sig_num)
 	write_string("$ ");
 	write_char(BUF_FLUSH);
 }
+

@@ -22,3 +22,4 @@ int command_check(info_t *info, char *path)
 	}
 	return (0);
 }
+

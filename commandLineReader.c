@@ -48,3 +48,5 @@ int commandLineReader(info_t *info, char **ptr, size_t *length)
 	*ptr = p;
 	return (s);
 }
+
+

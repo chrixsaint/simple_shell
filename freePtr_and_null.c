@@ -17,3 +17,4 @@ int freePtr_and_null(void **ptr)
 	}
 	return (0);
 }
+

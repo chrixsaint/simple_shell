@@ -22,3 +22,5 @@ int outputCharToFD(char c, int fd)
 		buf[i++] = c;
 	return (1);
 }
+
+

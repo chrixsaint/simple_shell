@@ -17,3 +17,4 @@ int helpGuide(info_t *info)
 		write_string(*arg_array); /* temp att_unused workaround */
 	return (0);
 }
+

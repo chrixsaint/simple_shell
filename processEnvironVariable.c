@@ -12,3 +12,4 @@ int processEnvironVariable(info_t *info)
 	print_string_nodes(info->env);
 	return (0);
 }
+

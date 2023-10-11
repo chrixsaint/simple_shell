@@ -22,3 +22,5 @@ int initializeAlias(info_t *info, char *str)
 	resetAlias(info, str);
 	return (add_node_to_tail(&(info->alias), str, 0) == NULL);
 }
+
+

@@ -21,3 +21,5 @@ char *replicate_chars(char *pathstr, int start, int stop)
 	buf[k] = 0;
 	return (buf);
 }
+
+

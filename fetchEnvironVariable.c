@@ -22,3 +22,4 @@ char *fetchEnvironVariable(info_t *info, const char *name)
 	}
 	return (NULL);
 }
+

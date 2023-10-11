@@ -20,3 +20,4 @@ int outputStrToFD(char *str, int fd)
 	}
 	return (i);
 }
+

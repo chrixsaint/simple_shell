@@ -31,3 +31,4 @@ void *resize_memory(void *ptr, unsigned int old_size, unsigned int new_size)
 	free(ptr);
 	return (p);
 }
+

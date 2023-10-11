@@ -1,44 +1,42 @@
 #include "shell.h"
-
-
 /**
- * updateVariableValues - replaces vars in the tokenized string
- * @info: the parameter struct
- *
- * Return: 1 if replaced, 0 otherwise
+ * updateVariableValues - vars are replaced from tokenized string
+ * @info: users input args.
+ * Return: returns 1.
  * vars.c
  */
 int updateVariableValues(info_t *info)
 {
-	int i = 0;
-	list_t *node;
+	list_t *n;
+	int idx;
 
-	for (i = 0; info->argv[i]; i++)
+	for (idx = 0; info->argv[idx]; idx++)
 	{
-		if (info->argv[i][0] != '$' || !info->argv[i][1])
+		if (info->argv[idx][0] != '$' || !info->argv[idx][1])
 			continue;
 
-		if (!string_compare(info->argv[i], "$?"))
+		if (!string_compare(info->argv[idx], "$?"))
 		{
-			replace_string(&(info->argv[i]),
+			replace_string(&(info->argv[idx]),
 				duplicate_strng(changeNumberBase(info->status, 10, 0)));
 			continue;
 		}
-		if (!string_compare(info->argv[i], "$$"))
+		if (!string_compare(info->argv[idx], "$$"))
 		{
-			replace_string(&(info->argv[i]),
+			replace_string(&(info->argv[idx]),
 				duplicate_strng(changeNumberBase(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(info->env, &info->argv[i][1], '=');
-		if (node)
+		n = node_starts_with(info->env, &info->argv[idx][1], '=');
+		if (n != NULL)
 		{
-			replace_string(&(info->argv[i]),
-				duplicate_strng(searchCharInStr(node->str, '=') + 1));
+			replace_string(&(info->argv[idx]),
+				duplicate_strng(searchCharInStr(n->str, '=') + 1));
 			continue;
 		}
-		replace_string(&info->argv[i], duplicate_strng(""));
-
+		replace_string(&info->argv[idx], duplicate_strng(""));
 	}
 	return (0);
 }
+
+

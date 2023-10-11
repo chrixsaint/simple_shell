@@ -46,3 +46,5 @@ ssize_t getUserCommand(info_t *info)
 	*buf_p = buf; /* else not a chain, pass back buffer from commandLineReader() */
 	return (r); /* return length of buffer from commandLineReader() */
 }
+
+

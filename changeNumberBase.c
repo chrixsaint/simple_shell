@@ -36,3 +36,4 @@ char *changeNumberBase(long int num, int base, int flags)
 		*--ptr = sign;
 	return (ptr);
 }
+

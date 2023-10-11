@@ -22,3 +22,5 @@ int create_history_node(info_t *info, char *buf, int linecount)
 		info->history = node;
 	return (0);
 }
+
+

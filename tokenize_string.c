@@ -1,50 +1,65 @@
 #include "shell.h"
-
 /**
- * **tokenize_string - splits a string into words. Repeat delimiters are ignored
+ * **tokenize_string - breaks str into tokens or wrds
  * @str: the input string
- * @d: the delimeter string
- * Return: a pointer to an array of strings, or NULL on failure
+ * @d: delimeter character
+ * Return: returns ptr to an array of strings, or NULL on failure
  * tokenizer.c
  */
 
 char **tokenize_string(char *str, char *d)
 {
-	int i, j, k, m, numwords = 0;
-	char **s;
+	int idx;
+	int ot;
+	int x;
+	int z, wrds = 0;
+	char **strng;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
 	if (!d)
 		d = " ";
-	for (i = 0; str[i] != '\0'; i++)
-		if (!delimiterCheck(str[i], d) && (delimiterCheck(str[i + 1], d) || !str[i + 1]))
-			numwords++;
+	for (idx = 0; str[idx] != '\0'; idx++)
+		if (!delimiterCheck(str[idx], d) && (delimiterCheck(str[idx + 1], d) || !str[idx + 1]))
+			wrds++;
 
-	if (numwords == 0)
+	if (wrds == 0)
 		return (NULL);
-	s = malloc((1 + numwords) * sizeof(char *));
-	if (!s)
-		return (NULL);
-	for (i = 0, j = 0; j < numwords; j++)
+	strng = malloc((1 + wrds) * sizeof(char *));
+	if (!strng)
 	{
-		while (delimiterCheck(str[i], d))
-			i++;
-		k = 0;
-		while (!delimiterCheck(str[i + k], d) && str[i + k])
-			k++;
-		s[j] = malloc((k + 1) * sizeof(char));
-		if (!s[j])
+		return (NULL);
+	}
+	for (idx = 0, ot = 0; ot < wrds; ot++)
+	{
+		while (delimiterCheck(str[idx], d))
+			idx++;
+		x = 0;
+		for (x = 0; !delimiterCheck(str[idx + x], d) && str[idx + x]; x++)
 		{
-			for (k = 0; k < j; k++)
-				free(s[k]);
-			free(s);
+			;
+		}
+		strng[ot] = malloc((x + 1) * sizeof(char));
+		if (!strng[ot])
+		{
+			x  = 0;
+			while (x < ot)
+			{
+				free(strng[x]);
+				x++;
+			}
+			free(strng);
 			return (NULL);
 		}
-		for (m = 0; m < k; m++)
-			s[j][m] = str[i++];
-		s[j][m] = 0;
+		z = 0;
+		while (z < x)
+		{
+			strng[ot][z] = str[idx++];
+			z++;
+		}
+		strng[ot][z] = 0;
 	}
-	s[j] = NULL;
-	return (s);
+	strng[ot] = NULL;
+	return (strng);
 }
+
