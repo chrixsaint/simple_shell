@@ -2,26 +2,35 @@
 
 
 /**
- * deallocate_list - frees all nodes of a list
- * @head_ptr: address of pointer to head node
+ * deallocate_list - Frees all nodes of a linked
+ * list and sets the list head to NULL.
+ * @head_ptr: Address of the pointer to the head node.
  *
- * Return: void
- * lists.c
+ * This function deallocates memory for all nodes in a linked list
+ * starting from the head node
+ * and sets the head pointer to NULL, to effectively
+ * clear the linked list.
+ *
+ * Return: void.
  */
+
 void deallocate_list(list_t **head_ptr)
 {
-	list_t *node, *next_node, *head;
+	list_t *nnodde;
+	list_t *other_nnodde, *head;
 
-	if (!head_ptr || !*head_ptr)
-		return;
-	head = *head_ptr;
-	node = head;
-	while (node)
+	if (head_ptr == NULL || *head_ptr == NULL)
 	{
-		next_node = node->next;
-		free(node->str);
-		free(node);
-		node = next_node;
+		return;
+	}
+	head = *head_ptr;
+	nnodde = head;
+	while (nnodde)
+	{
+		other_nnodde = nnodde->next;
+		free(nnodde->str);
+		free(nnodde);
+		nnodde = other_nnodde;
 	}
 	*head_ptr = NULL;
 }
