@@ -1,23 +1,18 @@
 #include "shell.h"
-
-
 /**
- *outputStrToFD - prints an input string
- * @str: the string to be printed
- * @fd: the filedescriptor to write to
- *
- * Return: the number of chars put
+ *outputStrToFD - outputs inputed str
+ * @str: str inputed
+ * @fhandle: file handle.
+ * Return: returns len of chars.
  */
-int outputStrToFD(char *str, int fd)
+int outputStrToFD(char *str, int fhandle)
 {
-	int i = 0;
+	int idx = 0;
 
 	if (!str)
 		return (0);
 	while (*str)
-	{
-		i += outputCharToFD(*str++, fd);
-	}
-	return (i);
+		idx += outputCharToFD(*str++, fhandle);
+	return (idx);
 }
 

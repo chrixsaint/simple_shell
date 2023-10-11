@@ -1,13 +1,12 @@
 #include "shell.h"
 /**
  * **tokenize_string - breaks str into tokens or wrds
- * @str: the input string
+ * @s: the input string
  * @d: delimeter character
  * Return: returns ptr to an array of strings, or NULL on failure
  * tokenizer.c
  */
-
-char **tokenize_string(char *str, char *d)
+char **tokenize_string(char *s, char *d)
 {
 	int idx;
 	int ot;
@@ -15,12 +14,12 @@ char **tokenize_string(char *str, char *d)
 	int z, wrds = 0;
 	char **strng;
 
-	if (str == NULL || str[0] == 0)
+	if (s == NULL || s[0] == 0)
 		return (NULL);
 	if (!d)
 		d = " ";
-	for (idx = 0; str[idx] != '\0'; idx++)
-		if (!delimiterCheck(str[idx], d) && (delimiterCheck(str[idx + 1], d) || !str[idx + 1]))
+	for (idx = 0; s[idx] != '\0'; idx++)
+		if (!delimiterCheck(s[idx], d) && (delimiterCheck(s[idx + 1], d) || !s[idx + 1]))
 			wrds++;
 
 	if (wrds == 0)
@@ -32,10 +31,10 @@ char **tokenize_string(char *str, char *d)
 	}
 	for (idx = 0, ot = 0; ot < wrds; ot++)
 	{
-		while (delimiterCheck(str[idx], d))
+		while (delimiterCheck(s[idx], d))
 			idx++;
 		x = 0;
-		for (x = 0; !delimiterCheck(str[idx + x], d) && str[idx + x]; x++)
+		for (x = 0; !delimiterCheck(s[idx + x], d) && s[idx + x]; x++)
 		{
 			;
 		}
@@ -54,7 +53,7 @@ char **tokenize_string(char *str, char *d)
 		z = 0;
 		while (z < x)
 		{
-			strng[ot][z] = str[idx++];
+			strng[ot][z] = s[idx++];
 			z++;
 		}
 		strng[ot][z] = 0;

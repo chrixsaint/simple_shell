@@ -1,20 +1,22 @@
 #include "shell.h"
 
 /**
- * populate_env_list - populates env linked list
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
- * Return: Always 0
+ * populate_env_list - fills env list
+ * @info: users arguments.
+ * Return: returns 0
  * environ.c
  */
 int populate_env_list(info_t *info)
 {
-	list_t *node = NULL;
-	size_t i;
+	size_t idx = 0;
+	list_t *n = NULL;
 
-	for (i = 0; environ[i]; i++)
-		add_node_to_tail(&node, environ[i], 0);
-	info->env = node;
+	while (environ[idx])
+	{
+		add_node_to_tail(&n, environ[idx], 0);
+		idx++;
+	}
+	info->env = n;
 	return (0);
 }
 

@@ -1,22 +1,21 @@
 #include "shell.h"
-
 /**
- * modifyEnvVar - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * modifyEnvVar - creates an instance of new environment var.
+ * @my_args: users input arguments.
+ *  Return: returns 0.
  * environ.c
  */
-int modifyEnvVar(info_t *info)
+int modifyEnvVar(info_t *my_args)
 {
-	if (info->argc != 3)
+	if (my_args->argc != 3)
 	{
 		errorOutput("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (defineEnvVar(info, info->argv[1], info->argv[2]))
+	if (defineEnvVar(my_args, my_args->argv[1], my_args->argv[2]))
+	{
 		return (0);
+	}
 	return (1);
 }
 

@@ -1,25 +1,24 @@
 #include "shell.h"
-
-
 /**
- * node_starts_with - returns node whose string starts with prefix
- * @node: pointer to list head
- * @prefix: string to match
- * @c: the next character after prefix to match
- *
- * Return: match node or null
- * lists1.c
+ * node_starts_with - this func checks for n whose str starts.
+ * @n: ptr to singly linked list.
+ * @prfx: str to be matched
+ * @ch: next char.
+ * Return: returns matched n.
+ * lists1.ch
  */
-list_t *node_starts_with(list_t *node, char *prefix, char c)
+list_t *node_starts_with(list_t *n, char *prfx, char ch)
 {
-	char *p = NULL;
+	char *pt = NULL;
 
-	while (node)
+	while (n)
 	{
-		p = prefix_match(node->str, prefix);
-		if (p && ((c == -1) || (*p == c)))
-			return (node);
-		node = node->next;
+		pt = prefix_match(n->str, prfx);
+		if (pt && ((ch == -1) || (*pt == ch)))
+		{
+			return (n);
+		}
+		n = n->next;
 	}
 	return (NULL);
 }
