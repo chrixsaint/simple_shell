@@ -2,25 +2,35 @@
 
 
 /**
- * duplicate_strng - duplicates a string
- * @str: the string to duplicate
+ * duplicate_strng - Duplicates a string.
+ * @str: The string to duplicate.
  *
- * Return: pointer to the duplicated string
+ * This function duplicates the input string `str`
+ * and returns a pointer to the duplicated string.
+ *
+ * Return: A pointer to the duplicated string or NULL
+ * if memory allocation fails.
  * string1.c
  */
 char *duplicate_strng(const char *str)
 {
-	int length = 0;
-	char *ret;
+	char *reset;
+	int lentt = 0;
 
-	if (str == NULL)
+	if (!str)
+	{
 		return (NULL);
+	}
 	while (*str++)
-		length++;
-	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+	{
+		lentt++;
+	}
+	reset = malloc(sizeof(char) * (lentt + 1));
+	if (reset == NULL)
+	{
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
-	return (ret);
+	}
+	for (lentt++; lentt--;)
+		reset[lentt] = *--str;
+	return (reset);
 }
