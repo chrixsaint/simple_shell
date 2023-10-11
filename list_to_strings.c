@@ -1,40 +1,55 @@
 #include "shell.h"
 
 
+
 /**
- * list_to_strings - returns an array of strings of the list->str
- * @head: pointer to first node
+ * list_to_strings - Converts a linked list of strings
+ * to an array of strings.
+ * @head: Pointer to the first node of the linked list.
  *
- * Return: array of strings
- * lists1.c
+ * This function takes a linked list of strings and
+ * converts it into an array of strings, with the last
+ * element in the array set to NULL to indicate the end.
+ *
+ * Return: A dynamically allocated array of strings, or
+ * NULL if memory allocation fails.
  */
+
 char **list_to_strings(list_t *head)
 {
-	list_t *node = head;
-	size_t i = get_node_count(head), j;
-	char **strs;
+	char **strn;
 	char *str;
+	list_t *nnodde;
+	size_t aii, jaii;
 
-	if (!head || !i)
+	aii = get_node_count(head);
+	nnodde = head;
+	jaii = 0;
+	if (head == NULL || !aii)
 		return (NULL);
-	strs = malloc(sizeof(char *) * (i + 1));
-	if (!strs)
-		return (NULL);
-	for (i = 0; node; node = node->next, i++)
+	strn = malloc(sizeof(char *) * (aii + 1));
+	if (strn == NULL)
 	{
-		str = malloc(stringlength(node->str) + 1);
-		if (!str)
+		return (NULL);
+	}
+	for (aii = 0; nnodde; nnodde = nnodde->next, aii++)
+	{
+		str = malloc(stringlength(nnodde->str) + 1);
+		if (str == NULL)
 		{
-			for (j = 0; j < i; j++)
-				free(strs[j]);
-			free(strs);
+			while (jaii < aii)
+			{
+				free(strn[jaii]);
+				jaii++;
+			}
+			free(strn);
 			return (NULL);
 		}
 
-		str = copy_str(str, node->str);
-		strs[i] = str;
+		str = copy_str(str, nnodde->str);
+		strn[aii] = str;
 	}
-	strs[i] = NULL;
-	return (strs);
+	strn[aii] = NULL;
+	return (strn);
 }
 

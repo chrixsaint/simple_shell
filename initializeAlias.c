@@ -20,7 +20,7 @@ int initializeAlias(info_t *info, char *str)
 	{
 		return (1);
 	}
-	if (*++ptr == NULL)
+	if (!*++ptr)
 	{
 		return (resetAlias(info, str));
 	}
