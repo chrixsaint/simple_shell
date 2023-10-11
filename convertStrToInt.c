@@ -1,36 +1,47 @@
 #include "shell.h"
 
 /**
- *convertStrToInt - converts a string to an integer
- *@s: the string to be converted
- *Return: 0 if no numbers in string, converted number otherwise
- *_atoic.c
+ * convertStrToInt - Converts a string to an integer.
+ * @s: The string to be converted.
+ *
+ * This function takes a string `s` and attempts to convert it into an integer.
+ * It handles positive and negative integers.
+ *
+ * Return: The converted integer if successful, or 0
+ * if no valid number is found.
  */
-
 int convertStrToInt(char *s)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	unsigned int outcome;
+	int aii, siine;
+	int flarrg, display;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	siine = 1, aii = 0;
+	outcome = 0;
+	flarrg = 0;
+
+	while (s[aii] != '\0' && flarrg != 2)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (s[aii] == '-')
+			siine *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (s[aii] >= '0' && s[aii] <= '9')
 		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			flarrg = 1;
+			outcome *= 10;
+			outcome += (s[aii] - '0');
 		}
-		else if (flag == 1)
-			flag = 2;
+		else if (flarrg == 1)
+			flarrg = 2;
+		aii++;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (siine == -1)
+	{
+		display = -outcome;
+	}
 	else
-		output = result;
+		display = outcome;
 
-	return (output);
+	return (display);
 }
