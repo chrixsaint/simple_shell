@@ -2,23 +2,28 @@
 
 
 /**
- * get_node_index - gets the index of a node
- * @head: pointer to list head
- * @node: pointer to the node
+ * get_node_index - Get the index of a node in a linked list.
+ * @head: Pointer to the head of the linked list.
+ * @node: Pointer to the node for which you want to find the index.
  *
- * Return: index of node or -1
- * lists1.c
+ * This function searches for the given node in the
+ * linked list and returns its index.
+ *
+ * Return: The index of the node if found, or
+ * -1 if the node is not in the list.
  */
+
 ssize_t get_node_index(list_t *head, list_t *node)
 {
-	size_t i = 0;
+	size_t aii = 0;
 
-	while (head)
+	for (aii = 0; head; aii++)
 	{
 		if (head == node)
-			return (i);
+		{
+			return (aii);
+		}
 		head = head->next;
-		i++;
 	}
 	return (-1);
 }
