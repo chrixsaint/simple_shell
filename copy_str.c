@@ -1,24 +1,28 @@
 #include "shell.h"
 
 /**
- * copy_str - copies a string
- * @dest: the destination
- * @src: the source
+ * copy_str - Copies a string from source to destination.
+ * @dest: The destination string.
+ * @src: The source string.
  *
- * Return: pointer to destination
- * string1.c
+ * This function copies the content of the source string `src`
+ * to the destination string `dest`.
+ *
+ * Return: A pointer to the destination string `dest`.
  */
+
 char *copy_str(char *dest, char *src)
 {
-	int i = 0;
+	int aii;
 
 	if (dest == src || src == 0)
-		return (dest);
-	while (src[i])
 	{
-		dest[i] = src[i];
-		i++;
+		return (dest);
 	}
-	dest[i] = 0;
+	for (aii = 0; src[aii]; aii++)
+	{
+		dest[aii] = src[aii];
+	}
+	dest[aii] = 0;
 	return (dest);
 }
