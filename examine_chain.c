@@ -1,26 +1,32 @@
 #include "shell.h"
 
 /**
- * examine_chain - checks we should continue chaining based on last status
- * @info: the parameter struct
- * @buf: the char buffer
- * @p: address of current position in buf
- * @i: starting position in buf
- * @len: length of buf
+ * examine_chain - Examines whether to continue chaining commands
+ * based on the last command's status.
+ * @info: The parameter struct containing various information.
+ * @buf: The character buffer storing command strings.
+ * @p: The address of the current position in buf.
+ * @i: The starting position in buf.
+ * @len: The length of the buffer.
  *
- * Return: Void
- * vars.c
+ * This function is responsible for examining the status of the
+ * last executed command and making a decision regarding whether
+ * to continue chaining commands.
+ *
+ * Return: Void.
  */
+
 void examine_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-	size_t j = *p;
+	size_t jaii;
 
+	jaii = *p;
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			jaii = len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
@@ -28,9 +34,9 @@ void examine_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			j = len;
+			jaii = len;
 		}
 	}
 
-	*p = j;
+	*p = jaii;
 }
