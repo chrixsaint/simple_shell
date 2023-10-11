@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * get_node_count - Count the number of nodes in a linked list.
  * @h: Pointer to the first node of the linked list.
@@ -14,7 +13,6 @@
 size_t get_node_count(const list_t *h)
 {
 	size_t aii = 0;
-
 
 	for (aii = 0; h; aii++)
 	{
