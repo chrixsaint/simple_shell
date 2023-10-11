@@ -2,45 +2,53 @@
 
 
 /**
- * defineEnvVar - Initialize a new environment variable,
- *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- * @var: the string env var property
- * @value: the string env var value
- *  Return: Always 0
+ * defineEnvVar - Initialize a new environment variable
+ * or modify an existing one.
+ * @info: Pointer to the structure containing potential arguments.
+ * @var: The string representing the environment variable property.
+ * @value: The string representing the environment variable value.
+ *
+ * This function allows you to create a new environment variable
+ * or modify an existing one.
+ *
+ * Return: 0 on success, 1 if memory allocation fails.
  * getenv.c
  */
 int defineEnvVar(info_t *info, char *var, char *value)
 {
-	char *buf = NULL;
-	list_t *node;
-	char *p;
+	list_t *nnodde;
+	char *bupha;
+	char *ptr;
 
-	if (!var || !value)
-		return (0);
-
-	buf = malloc(stringlength(var) + stringlength(value) + 2);
-	if (!buf)
-		return (1);
-	copy_str(buf, var);
-	merge_strings(buf, "=");
-	merge_strings(buf, value);
-	node = info->env;
-	while (node)
+	bupha = NULL;
+	if (var == NULL || value == NULL)
 	{
-		p = prefix_match(node->str, var);
-		if (p && *p == '=')
+		return (0);
+	}
+
+	bupha = malloc(stringlength(var) + stringlength(value) + 2);
+	if (bupha == NULL)
+	{
+		return (1);
+	}
+	copy_str(bupha, var);
+	merge_strings(bupha, "=");
+	merge_strings(bupha, value);
+	nnodde = info->env;
+	while (nnodde)
+	{
+		ptr = prefix_match(nnodde->str, var);
+		if (ptr && *ptr == '=')
 		{
-			free(node->str);
-			node->str = buf;
+			free(nnodde->str);
+			nnodde->str = bupha;
 			info->env_changed = 1;
 			return (0);
 		}
-		node = node->next;
+		nnodde = nnodde->next;
 	}
-	add_node_to_tail(&(info->env), buf, 0);
-	free(buf);
+	add_node_to_tail(&(info->env), bupha, 0);
+	free(bupha);
 	info->env_changed = 1;
 	return (0);
 }
