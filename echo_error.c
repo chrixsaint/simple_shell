@@ -2,12 +2,16 @@
 
 
 /**
- * echo_error - prints an error message
- * @info: the parameter & return info struct
- * @estr: string containing specified error type
- * Return: 0 if no numbers in string, converted number otherwise
- *        -1 on error
+ * echo_error - Prints an error message to standard error.
+ * @info: The parameter and return info struct.
+ * @estr: A string containing the specified error type.
+ *
+ * This function prints an error message to the standard error stream,
+ * including the program name, line count, and the provided error message.
+ *
+ * Return: None.
  */
+
 void echo_error(info_t *info, char *estr)
 {
 	errorOutput(info->fname);
