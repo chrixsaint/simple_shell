@@ -1,9 +1,13 @@
 #include "shell.h"
 
 /**
- * eraseInfo - initializes info_t struct
- * @info: struct address
- * getinfo.c
+ * eraseInfo - Resets an info_t struct to initial values.
+ * @info: Pointer to the info_t struct to be reset.
+ *
+ * This function clears the fields of an info_t struct by
+ * setting them to their initial values, effectively resetting the structure.
+ *
+ * Return: None.
  */
 void eraseInfo(info_t *info)
 {
