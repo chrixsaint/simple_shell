@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * switchDirectory - converts current pth.
+ * switchDirectory - converts current pth
  * @info: users arguments.
  * Return: returns 0.
  * builtin.c
