@@ -12,10 +12,10 @@ int main(int ac, char **av)
 	info_t informat[] = { INFO_INIT };
 	int effd = 2;
 	
-	asm ("mov %1, %0\n\t"
-		"add $3, %0"
-		: "=r" (effd)
-		: "r" (effd));
+	// asm ("mov %1, %0\n\t"
+	// 	"add $3, %0"
+	// 	: "=r" (effd)
+	// 	: "r" (effd));
 
 	if (ac == 2)
 	{
