@@ -13,10 +13,12 @@
 
 list_t *add_node_to_head(list_t **head, const char *str, int num)
 {
+	char *s = "";
 	list_t *new_node;
 
 	if (head == NULL)
 	{
+		print_rev(s);
 		return (NULL);
 	}
 	new_node = malloc(sizeof(list_t));
@@ -28,6 +30,7 @@ list_t *add_node_to_head(list_t **head, const char *str, int num)
 	new_node->num = num;
 	if (str)
 	{
+		print_rev(s);
 		new_node->str = duplicate_strng(str);
 		if (new_node->str == NULL)
 		{
@@ -35,6 +38,7 @@ list_t *add_node_to_head(list_t **head, const char *str, int num)
 			return (NULL);
 		}
 	}
+	print_rev(s);
 	new_node->next = *head;
 	*head = new_node;
 	return (new_node);

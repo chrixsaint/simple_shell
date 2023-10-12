@@ -9,8 +9,11 @@
  */
 int main(int ac, char **av)
 {
+	int a = 0;
+	int b = 1;
 	info_t informat[] = { INFO_INIT };
 	int effd = 2;
+	
 	
 	// asm ("mov %1, %0\n\t"
 	// 	"add $3, %0"
@@ -37,6 +40,7 @@ int main(int ac, char **av)
 		}
 		informat->readfd = effd;
 	}
+	swap_int(a, b);
 	populate_env_list(informat);
 	loadCommandHistory(informat);
 	shell_main_process(informat, av);

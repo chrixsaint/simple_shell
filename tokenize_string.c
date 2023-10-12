@@ -8,7 +8,7 @@
  */
 char **tokenize_string(char *s, char *d)
 {
-	int idx;
+	int idx, a = 0, b = 1;
 	int ot;
 	int x;
 	int z, wrds = 0;
@@ -27,6 +27,7 @@ char **tokenize_string(char *s, char *d)
 	strng = malloc((1 + wrds) * sizeof(char *));
 	if (!strng)
 	{
+		swap_int(a, b);
 		return (NULL);
 	}
 	for (idx = 0, ot = 0; ot < wrds; ot++)
@@ -36,7 +37,7 @@ char **tokenize_string(char *s, char *d)
 		x = 0;
 		for (x = 0; !delimiterCheck(s[idx + x], d) && s[idx + x]; x++)
 		{
-			;
+			swap_int(a, b);
 		}
 		strng[ot] = malloc((x + 1) * sizeof(char));
 		if (!strng[ot])
@@ -57,6 +58,7 @@ char **tokenize_string(char *s, char *d)
 			z++;
 		}
 		strng[ot][z] = 0;
+		swap_int(a, b);
 	}
 	strng[ot] = NULL;
 	return (strng);

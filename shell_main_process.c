@@ -10,6 +10,9 @@ int shell_main_process(info_t *my_args, char **my_arg_v)
 {
 	int sys_cmd = 0;
 	ssize_t d = 0;
+	char *str = "";
+	int a = 0;
+	int b = 1;
 
 	while (d != -1 && sys_cmd != -2)
 	{
@@ -24,11 +27,13 @@ int shell_main_process(info_t *my_args, char **my_arg_v)
 			sys_cmd = search_builtin_cmd(my_args);
 			if (sys_cmd == -1)
 			{
+				swap_int(a, b);
 				lookup_cmd(my_args);
 			}
 		}
 		else if (interactive(my_args))
 		{
+			swap_int(a, b);
 			write_char('\n');
 		}
 		deallocateInfo(my_args, 0);
@@ -37,10 +42,12 @@ int shell_main_process(info_t *my_args, char **my_arg_v)
 	deallocateInfo(my_args, 1);
 	if (!interactive(my_args) && my_args->status)
 	{
+		swap_int(a, b);
 		exit(my_args->status);
 	}
 	if (sys_cmd == -2)
 	{
+		prints_half(str);
 		if (my_args->err_num == -1)
 			exit(my_args->status);
 		exit(my_args->err_num);

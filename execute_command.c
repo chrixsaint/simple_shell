@@ -15,6 +15,7 @@
 void execute_command(info_t *info)
 {
 	pid_t child_pid;
+	char *s = "";
 
 	child_pid = fork();
 	if (child_pid == -1)
@@ -26,6 +27,7 @@ void execute_command(info_t *info)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
+			print_rev(s);
 			deallocateInfo(info, 1);
 			if (errno == EACCES)
 			{
@@ -36,12 +38,14 @@ void execute_command(info_t *info)
 	}
 	else
 	{
+		print_rev(s);
 		wait(&(info->status));
 		if (WIFEXITED(info->status))
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
 			{
+				print_rev(s);
 				echo_error(info, "Permission denied\n");
 			}
 		}

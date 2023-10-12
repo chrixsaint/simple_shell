@@ -27,7 +27,7 @@ ssize_t manageInputBuffer(info_t *info, char **my_buffr, size_t *len)
 			if ((*my_buffr)[rdr - 1] == '\n')
 			{
 				(*my_buffr)[rdr - 1] = '\0';
-				rdr--;
+				rdr = rdr - 1;
 			}
 			info->linecount_flag = 1;
 			remove_comments(*my_buffr);
