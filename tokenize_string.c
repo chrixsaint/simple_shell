@@ -3,7 +3,7 @@
  * **tokenize_string - breaks str into tokens or wrds
  * @s: the input string
  * @d: delimeter character
- * Return: returns ptr to an array of strings, or NULL on failure
+ * Return: returns ptr to an array of strings, or NULL on failure.
  * tokenizer.c
  */
 char **tokenize_string(char *s, char *d)
