@@ -2,7 +2,7 @@
 /**
  * writeErrorChar - writes error character
  * @c: Char to be printed.
- * Return: returns 1 always.
+ * Return: returns 1 always
  */
 int writeErrorChar(char c)
 {
