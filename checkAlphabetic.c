@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * checkAlphabetic - Checks if a character is alphabetic (a-z or A-Z).
+ * checkAlphabetic - Checks if a character is alphabetic (a-z or A-Z)
  * @c: The character to be checked.
  *
  * This function checks if the character 'c' is an alphabetic
