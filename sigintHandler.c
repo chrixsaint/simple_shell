@@ -1,6 +1,6 @@
 #include"shell.h"
 /**
- * sigintHandler - stops ctrl-C
+ * sigintHandler - stops ctrl-C.
  * @sig_num: signal digit
  * Return: returns void
  * getLine.c
