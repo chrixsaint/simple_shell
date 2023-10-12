@@ -6,7 +6,7 @@
  * changeNumberBase - Converts a number to a string
  * representation in a given base.
  * @num: The number to be converted.
- * @base: The base to which the number should be converted.
+ * @base: The base to which the number should be converted
  * @flags: Additional conversion flags
  * (e.g., CONVERT_UNSIGNED, CONVERT_LOWERCASE).
  *
