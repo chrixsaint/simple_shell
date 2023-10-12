@@ -18,7 +18,7 @@
  * updates the 'info' struct with the type of chain delimiter
  * found (e.g., CMD_OR, CMD_AND, or CMD_CHAIN).
  *
- * Return: 1 if a chain delimiter is found, 0 otherwise.
+ * Return: 1 if a chain delimiter is found, 0 otherwise
  */
 
 int check_chain_delimiter(DataInfo_tii *info, char *buf, size_t *p)
