@@ -3,7 +3,7 @@
  * writeDecimal - writes dec number
  * @input: number input
  * @fd: file handle
- * Return: returns the num.
+ * Return: returns the num
  */
 int writeDecimal(int input, int fd)
 {
