@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * clearEnvVar - Remove one or more environment variables.
+ * clearEnvVar - Remove one or more environment variables
  * @info: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  *
