@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - Entry point for the shell program.
+ * main - Entry point for the shell program
  * @ac: Argument count that is number of command-line arguments
  * @av: Argument vector that is array of command-line argument strings
  * Return: 0 on success, 1 on error.
