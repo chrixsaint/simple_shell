@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * write_char - displays char c.
+ * write_char - displays char c
  * @c: char to disp.
  * Return: returns 1.
  * string1.c
