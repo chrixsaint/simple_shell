@@ -73,7 +73,7 @@ typedef struct leest_strng
  *@cmd_buf: address of pointer to cmd_buf, on if chaining
  *@cmd_buf_type: CMD_type ||, &&, ;
  *@readfd: the fd from which to read line input
- *@histcount: the history line number count passinfo  UserInfo
+ *@histcount: the history line number count passinfo  UserInfo.
  */
 typedef struct UserInfo
 {
