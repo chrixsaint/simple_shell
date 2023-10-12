@@ -7,7 +7,7 @@
  * @s: The string to be converted.
  *
  * This function attempts to convert the given string 's' to an
- * integer. If successful, it returns the converted integer.
+ * integer. If successful, it returns the converted integer
  * If the string contains non-numeric characters or the outcome
  * is out of the range of `int`, it returns -1 to indicate an error.
  *
