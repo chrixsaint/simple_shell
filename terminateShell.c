@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * terminateShell - exits the shell
+ * terminateShell - exits the shell.
  * @info: users args.
  * Return: returns status.
  * builtin.c
