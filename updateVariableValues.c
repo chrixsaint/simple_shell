@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * updateVariableValues - vars are replaced from tokenized string
+ * updateVariableValues - vars are replaced from tokenized string.
  * @info: users input args.
  * Return: returns 1.
  * vars.c
