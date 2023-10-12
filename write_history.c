@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * write_history - makes history file.
+ * write_history - makes history file
  * @info: users arguments.
  * Return: returns 1.
  * history.c
