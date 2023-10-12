@@ -12,7 +12,7 @@
  * If called with no arguments, it displays all existing aliases.
  * If called with arguments in the form of 'alias name=value',
  * it creates or modifies an alias.
- * If called with an alias name, it displays the alias value.
+ * If called with an alias name, it displays the alias value
  *
  * Return: Always 0
  */
