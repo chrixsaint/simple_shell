@@ -2,7 +2,7 @@
 
 /**
  * add_node_to_tail - Adds a node to the end of a linked list.
- * @head: Address of a pointer to the head node.
+ * @head: Address of a pointer to the head node
  * @str: The string to be stored in the new node.
  * @num: Node index used by history (if applicable).
  *
