@@ -2,7 +2,7 @@
 /**
  *write_string - writes str input
  *@str: str input
- * Return: returns void.
+ * Return: returns void
  * string1.c
  */
 void write_string(char *str)
