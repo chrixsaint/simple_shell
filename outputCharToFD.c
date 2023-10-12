@@ -1,25 +1,24 @@
 #include "shell.h"
-
 /**
- * outputCharToFD - writes the character c to given fd
- * @c: The character to print
- * @fd: The filedescriptor to write to
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * outputCharToFD - writes char file
+ * @ch: character to be printed
+ * @fhandle: file handle.
+ * Return: returns 1.
  */
-int outputCharToFD(char c, int fd)
+int outputCharToFD(char ch, int fhandle)
 {
-	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buffer[WRITE_BUF_SIZE];
+	static int idx;
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUF_FLUSH || idx >= WRITE_BUF_SIZE)
 	{
-		write(fd, buf, i);
-		i = 0;
+		write(fhandle, buffer, idx);
+		idx = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (ch != BUF_FLUSH)
+	{
+		buffer[idx++] = ch;
+	}
 	return (1);
 }
 

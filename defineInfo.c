@@ -2,11 +2,11 @@
 
 
 /**
- * defineInfo - Initializes an `info_t` struct.
- * @info: Pointer to the `info_t` struct to be initialized.
+ * defineInfo - Initializes an `DataInfo_tii` struct.
+ * @info: Pointer to the `DataInfo_tii` struct to be initialized.
  * @av: Argument vector containing the program name and arguments.
  *
- * This function initializes the fields of an `info_t` struct,
+ * This function initializes the fields of an `DataInfo_tii` struct,
  * including setting the program name,
  * tokenizing the argument string, and updating variable values.
  *
@@ -14,7 +14,7 @@
  * getinfo.c
  */
 
-void defineInfo(info_t *info, char **av)
+void defineInfo(DataInfo_tii *info, char **av)
 {
 	int aii;
 

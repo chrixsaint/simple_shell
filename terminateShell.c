@@ -5,7 +5,7 @@
  * Return: returns status.
  * builtin.c
  */
-int terminateShell(info_t *info)
+int terminateShell(DataInfo_tii *info)
 {
 	int checkExit;
 

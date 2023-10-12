@@ -2,18 +2,18 @@
 
 
 /**
- * deallocateInfo - Frees the fields of the info_t struct as specified.
- * @info: Pointer to the info_t struct.
+ * deallocateInfo - Frees the fields of the DataInfo_tii struct as specified.
+ * @info: Pointer to the DataInfo_tii struct.
  * @all: True if freeing all fields, otherwise, only specific fields are freed.
  *
  * This function deallocates memory for specific fields
- * within the info_t struct.
+ * within the DataInfo_tii struct.
  *
  * Return: void.
  * getinfo.c
  */
 
-void deallocateInfo(info_t *info, int all)
+void deallocateInfo(DataInfo_tii *info, int all)
 {
 	free_string_array(info->argv);
 	info->argv = NULL;

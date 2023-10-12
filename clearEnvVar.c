@@ -11,7 +11,7 @@
  *
  * Return: 0 on success, 1 on error.
  */
-int clearEnvVar(info_t *info)
+int clearEnvVar(DataInfo_tii *info)
 {
 	int q;
 

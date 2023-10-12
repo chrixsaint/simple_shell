@@ -13,9 +13,9 @@
  * Return: A pointer to the value of the environment
  * variable or NULL if not found.
  */
-char *fetchEnvironVariable(info_t *info, const char *name)
+char *fetchEnvironVariable(DataInfo_tii *info, const char *name)
 {
-	list_t *nnodde;
+	leest_ti *nnodde;
 	char *ptr;
 
 	nnodde = info->env;

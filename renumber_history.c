@@ -7,10 +7,10 @@
  * Return: returns new hist count
  * history.c
  */
-int renumber_history(info_t *info)
+int renumber_history(DataInfo_tii *info)
 {
 	int idx = 0;
-	list_t *n;
+	leest_ti *n;
 	
 	n = info->history;
 	while (n)

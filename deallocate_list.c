@@ -14,10 +14,10 @@
  * Return: void.
  */
 
-void deallocate_list(list_t **head_ptr)
+void deallocate_list(leest_ti **head_ptr)
 {
-	list_t *nnodde;
-	list_t *other_nnodde, *head;
+	leest_ti *nnodde;
+	leest_ti *other_nnodde, *head;
 
 	if (head_ptr == NULL || *head_ptr == NULL)
 	{

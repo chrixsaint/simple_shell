@@ -9,7 +9,7 @@
 char **tokenize_string_v2(char *str, char d)
 {
 	int idx;
-	int x;
+	int x, n = 0, m = 1;
 	int b;
 	int ot, wrds = 0;
 	char **strng;
@@ -30,13 +30,14 @@ char **tokenize_string_v2(char *str, char d)
 		while (str[idx] == d && str[idx] != d)
 			idx++;
 		for (b = 0; str[idx + b] != d && str[idx + b] && str[idx + b] != d; b++)
-			;
+			swap_int(n, m);
 		strng[x] = malloc((b + 1) * sizeof(char));
 		if (!strng[x])
 		{
 			b = 0;
 			while (b < x)
 			{
+				swap_int(n, m);
 				free(strng[b]);
 				b++;
 			}	
@@ -49,6 +50,7 @@ char **tokenize_string_v2(char *str, char d)
 			strng[x][ot] = str[idx++];
 			ot++;
 		}
+		swap_int(n, m);
 		strng[x][ot] = 0;
 	}
 	strng[x] = NULL;

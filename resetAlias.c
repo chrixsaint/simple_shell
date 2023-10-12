@@ -6,7 +6,7 @@
  * Return: returns 0 on succes.
  * builtin1.ctr
  */
-int resetAlias(info_t *info, char *str)
+int resetAlias(DataInfo_tii *info, char *str)
 {
 	char *my_ptr;
 	char ctr;

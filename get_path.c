@@ -12,7 +12,7 @@
  *
  * Return: The full path of the command if found, or NULL if not found.
  */
-char *get_path(info_t *info, char *pathstr, char *cmd)
+char *get_path(DataInfo_tii *info, char *pathstr, char *cmd)
 {
 	int aii = 0, pre_positn;
 	char *pattt;

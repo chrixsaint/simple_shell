@@ -11,10 +11,10 @@
  * Return: 1 on success, 0 on failure (e.g., if the index is out of bounds).
  * lists.c
  */
-int delete_node_at_index(list_t **head, unsigned int index)
+int delete_node_at_index(leest_ti **head, unsigned int index)
 {
 	unsigned int aii;
-	list_t *nnodde, *prev_node;
+	leest_ti *nnodde, *prev_node;
 
 
 	if (head == NULL || *head == NULL)

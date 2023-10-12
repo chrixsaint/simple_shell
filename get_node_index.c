@@ -13,7 +13,7 @@
  * -1 if the node is not in the list.
  */
 
-ssize_t get_node_index(list_t *head, list_t *node)
+ssize_t get_node_index(leest_ti *head, leest_ti *node)
 {
 	size_t aii = 0;
 

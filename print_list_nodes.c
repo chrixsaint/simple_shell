@@ -5,7 +5,7 @@
  * Return: returns sizeof list
  * lists1.c
  */
-size_t print_list_nodes(const list_t *h)
+size_t print_list_nodes(const leest_ti *h)
 {
 	size_t idx;
 

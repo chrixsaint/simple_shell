@@ -14,9 +14,9 @@
  * Return: 0 on success, 1 if memory allocation fails.
  * getenv.c
  */
-int defineEnvVar(info_t *info, char *var, char *value)
+int defineEnvVar(DataInfo_tii *info, char *var, char *value)
 {
-	list_t *nnodde;
+	leest_ti *nnodde;
 	char *bupha;
 	char *ptr;
 

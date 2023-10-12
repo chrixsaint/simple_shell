@@ -14,7 +14,7 @@
  * the end of the file is reached, or -1 on failure.
  */
 
-int commandLineReader(info_t *info, char **ptr, size_t *length)
+int commandLineReader(DataInfo_tii *info, char **ptr, size_t *length)
 {
 	char *pee, *cee, *fresh_ptr;
 	static char bupha[READ_BUF_SIZE];

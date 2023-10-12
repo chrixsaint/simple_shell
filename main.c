@@ -4,18 +4,19 @@
  * main - Entry point for the shell program.
  * @ac: Argument count that is number of command-line arguments
  * @av: Argument vector that is array of command-line argument strings
-
  * Return: 0 on success, 1 on error.
  */
 int main(int ac, char **av)
 {
-	info_t informat[] = { INFO_INIT };
+	int a = 0;
+	int b = 1;
+	DataInfo_tii informat[] = { INFO_INIT };
 	int effd = 2;
-	
-	// asm ("mov %1, %0\n\t"
-	// 	"add $3, %0"
-	// 	: "=r" (effd)
-	// 	: "r" (effd));
+
+	asm ("mov %1, %0\n\t"
+		"add $3, %0"
+		: "=r" (effd)
+		: "r" (effd));
 
 	if (ac == 2)
 	{
@@ -37,6 +38,7 @@ int main(int ac, char **av)
 		}
 		informat->readfd = effd;
 	}
+	swap_int(a, b);
 	populate_env_list(informat);
 	loadCommandHistory(informat);
 	shell_main_process(informat, av);

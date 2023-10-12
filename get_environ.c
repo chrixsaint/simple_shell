@@ -11,7 +11,7 @@
  * Return: A string array containing environment variable strings.
  */
 
-char **get_environ(info_t *info)
+char **get_environ(DataInfo_tii *info)
 {
 	if (info->environ == NULL || info->env_changed)
 	{

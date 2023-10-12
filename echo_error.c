@@ -12,7 +12,7 @@
  * Return: None.
  */
 
-void echo_error(info_t *info, char *estr)
+void echo_error(DataInfo_tii *info, char *estr)
 {
 	errorOutput(info->fname);
 	errorOutput(": ");

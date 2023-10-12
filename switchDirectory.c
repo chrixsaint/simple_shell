@@ -6,7 +6,7 @@
  * builtin.c
  */
 
-int switchDirectory(info_t *info)
+int switchDirectory(DataInfo_tii *info)
 {
 	char *str, *pth, bff[1024];
 	int dir_result;

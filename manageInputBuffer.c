@@ -1,47 +1,43 @@
 #include "shell.h"
-
 /**
  * manageInputBuffer - buffers chained commands
- * @info: parameter struct
- * @buf: address of buffer
- * @len: address of len var
- *
- * Return: bytes read
+ * @info: users inputed commands.
+ * @my_buffr: ptr to my_buffr
+ * @len: ptr to len of variable.
+ * Return: returns size of my_buffr read
  * getLine.c
  */
-ssize_t manageInputBuffer(info_t *info, char **buf, size_t *len)
+ssize_t manageInputBuffer(DataInfo_tii *info, char **my_buffr, size_t *len)
 {
-	ssize_t r = 0;
-	size_t len_p = 0;
+	size_t lenPtr = 0;
+	ssize_t rdr = 0;
 
-	if (!*len) /* if nothing left in the buffer, fill it */
+	if (!*len)
 	{
-		/*freePtr_and_null((void **)info->cmd_buf);*/
-		free(*buf);
-		*buf = NULL;
+		free(*my_buffr);
+		*my_buffr = NULL;
 		signal(SIGINT, sigintHandler);
 #if USE_GETLINE
-		r = getline(buf, &len_p, stdin);
+		rdr = getline(my_buffr, &lenPtr, stdin);
 #else
-		r = commandLineReader(info, buf, &len_p);
+		rdr = commandLineReader(info, my_buffr, &lenPtr);
 #endif
-		if (r > 0)
+		if (rdr > 0)
 		{
-			if ((*buf)[r - 1] == '\n')
+			if ((*my_buffr)[rdr - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; /* remove trailing newline */
-				r--;
+				(*my_buffr)[rdr - 1] = '\0';
+				rdr = rdr - 1;
 			}
 			info->linecount_flag = 1;
-			remove_comments(*buf);
-			create_history_node(info, *buf, info->histcount++);
-			/* if (searchCharInStr(*buf, ';')) is this a command chain? */
+			remove_comments(*my_buffr);
+			create_history_node(info, *my_buffr, info->histcount++);
 			{
-				*len = r;
-				info->cmd_buf = buf;
+				*len = rdr;
+				info->cmd_buf = my_buffr;
 			}
 		}
 	}
-	return (r);
+	return (rdr);
 }
 

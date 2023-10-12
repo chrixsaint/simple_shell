@@ -10,7 +10,7 @@
  *
  * Return: The number of bytes read.
  */
-int helpGuide(info_t *info)
+int helpGuide(DataInfo_tii *info)
 {
 	char **arg_arr;
 

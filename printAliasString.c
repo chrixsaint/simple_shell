@@ -6,7 +6,7 @@
  * Return: returns 0.
  * builtin1.c
  */
-int printAliasString(list_t *node)
+int printAliasString(leest_ti *node)
 {
 	char *pt = NULL;
 	char *zend = NULL;

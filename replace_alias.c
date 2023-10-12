@@ -5,9 +5,9 @@
  * Return: returns 1 if replaced.
  * vars.c
  */
-int replace_alias(info_t *info)
+int replace_alias(DataInfo_tii *info)
 {
-	list_t *n;
+	leest_ti *n;
 	int idx = 0;
 	char *ptr;
 

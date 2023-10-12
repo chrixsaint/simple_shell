@@ -5,10 +5,10 @@
  * Return: returns 0 if success.
  * shell_loop.c
  */
-int search_builtin_cmd(info_t *my_args)
+int search_builtin_cmd(DataInfo_tii *my_args)
 {
 	int idx, cmd_results = -1;
-	builtin_table builtintbl[] = {
+	cmdHandler_table builtintbl[] = {
 		{"exit", terminateShell},
 		{"env", processEnvironVariable},
 		{"help", helpGuide},

@@ -4,7 +4,7 @@
  * @hd: pointer to starting node
  * Return: returns sizeof ls
  * lists.c
- */size_t print_string_nodes(const list_t *hd)
+ */size_t print_string_nodes(const leest_ti *hd)
 {
 	size_t idx;
 

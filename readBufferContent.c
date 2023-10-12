@@ -7,7 +7,7 @@
  * Return: returns fhandle.
  * getLine.c
  */
-ssize_t readBufferContent(info_t *info, char *buf, size_t *i)
+ssize_t readBufferContent(DataInfo_tii *info, char *buf, size_t *i)
 {
 	ssize_t fhandle = 0;
 

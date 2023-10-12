@@ -10,7 +10,7 @@
  * Return: The number of nodes in the linked list.
  */
 
-size_t get_node_count(const list_t *h)
+size_t get_node_count(const leest_ti *h)
 {
 	size_t aii = 0;
 

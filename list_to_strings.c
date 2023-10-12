@@ -15,11 +15,11 @@
  * NULL if memory allocation fails.
  */
 
-char **list_to_strings(list_t *head)
+char **list_to_strings(leest_ti *head)
 {
 	char **strn;
 	char *str;
-	list_t *nnodde;
+	leest_ti *nnodde;
 	size_t aii, jaii;
 
 	aii = get_node_count(head);

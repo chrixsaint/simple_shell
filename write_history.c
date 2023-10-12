@@ -5,9 +5,9 @@
  * Return: returns 1.
  * history.c
  */
-int write_history(info_t *info)
+int write_history(DataInfo_tii *info)
 {
-	list_t *n = NULL;
+	leest_ti *n = NULL;
 	ssize_t fhandle;
 	char *fname;
 

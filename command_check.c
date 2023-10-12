@@ -13,7 +13,7 @@
  *
  * Return: 1 if the file is executable, 0 otherwise.
  */
-int command_check(info_t *info, char *path)
+int command_check(DataInfo_tii *info, char *path)
 {
 	struct stat strin;
 

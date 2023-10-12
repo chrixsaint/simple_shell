@@ -12,7 +12,7 @@
  * Return: The number of bytes read.
  */
 
-ssize_t getUserCommand(info_t *info)
+ssize_t getUserCommand(DataInfo_tii *info)
 {
 	static size_t aii, jaii, lentt;
 	ssize_t r = 0;

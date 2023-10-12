@@ -6,10 +6,10 @@
  *  Return: returns 1 on delet.
  * getenv.c
  */
-int resetEnvVar(info_t *info, char *field)
+int resetEnvVar(DataInfo_tii *info, char *field)
 {
 	size_t idx = 0;
-	list_t *n;
+	leest_ti *n;
 	char *p;
 
 	n = info->env;

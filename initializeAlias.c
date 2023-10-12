@@ -11,13 +11,14 @@
  * Return: 0 on success, 1 on error.
  */
 
-int initializeAlias(info_t *info, char *str)
+int initializeAlias(DataInfo_tii *info, char *str)
 {
-	char *ptr;
+	char *ptr, *s = "";
 
 	ptr = searchCharInStr(str, '=');
 	if (ptr == NULL)
 	{
+		prints_half(s);
 		return (1);
 	}
 	if (!*++ptr)

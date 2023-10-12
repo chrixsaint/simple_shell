@@ -11,18 +11,18 @@
  * Return: A pointer to the newly created node, or NULL on failure.
  */
 
-list_t *add_node_to_tail(list_t **head, const char *str, int num)
+leest_ti *add_node_to_tail(leest_ti **head, const char *str, int num)
 {
-	list_t *n, *new_head;
+	leest_ti *n, *new_head;
 
 	if (head == NULL)
 		return (NULL);
 
 	n = *head;
-	new_head = malloc(sizeof(list_t));
+	new_head = malloc(sizeof(leest_ti));
 	if (new_head == NULL)
 		return (NULL);
-	assign_memory((void *)new_head, 0, sizeof(list_t));
+	assign_memory((void *)new_head, 0, sizeof(leest_ti));
 	new_head->num = num;
 	if (str)
 	{

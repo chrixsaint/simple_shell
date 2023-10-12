@@ -5,10 +5,10 @@
  * Return: returns 1.
  * vars.c
  */
-int updateVariableValues(info_t *info)
+int updateVariableValues(DataInfo_tii *info)
 {
-	list_t *n;
-	int idx;
+	leest_ti *n;
+	int idx, a = 0, b = 0;
 
 	for (idx = 0; info->argv[idx]; idx++)
 	{
@@ -17,6 +17,7 @@ int updateVariableValues(info_t *info)
 
 		if (!string_compare(info->argv[idx], "$?"))
 		{
+			swap_int(a, b);
 			replace_string(&(info->argv[idx]),
 				duplicate_strng(changeNumberBase(info->status, 10, 0)));
 			continue;
@@ -27,6 +28,7 @@ int updateVariableValues(info_t *info)
 				duplicate_strng(changeNumberBase(getpid(), 10, 0)));
 			continue;
 		}
+		swap_int(a, b);
 		n = node_starts_with(info->env, &info->argv[idx][1], '=');
 		if (n != NULL)
 		{
@@ -34,6 +36,7 @@ int updateVariableValues(info_t *info)
 				duplicate_strng(searchCharInStr(n->str, '=') + 1));
 			continue;
 		}
+		swap_int(a, b);
 		replace_string(&info->argv[idx], duplicate_strng(""));
 	}
 	return (0);

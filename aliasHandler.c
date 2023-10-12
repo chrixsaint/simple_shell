@@ -16,9 +16,9 @@
  *
  * Return: Always 0
  */
-int aliasHandler(info_t *info)
+int aliasHandler(DataInfo_tii *info)
 {
-	list_t *n = NULL;
+	leest_ti *n = NULL;
 	int q = 0;
 	char *r = NULL;
 

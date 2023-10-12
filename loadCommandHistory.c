@@ -13,7 +13,7 @@
  * Return: The number of commands loaded from history
  * on success, or 0 on failure.
  */
-int loadCommandHistory(info_t *info)
+int loadCommandHistory(DataInfo_tii *info)
 {
 	ssize_t fd, rdlen, fsize = 0;
 	struct stat st;

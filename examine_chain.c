@@ -16,7 +16,7 @@
  * Return: Void.
  */
 
-void examine_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
+void examine_chain(DataInfo_tii *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t jaii;
 

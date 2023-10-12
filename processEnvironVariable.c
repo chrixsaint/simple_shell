@@ -5,7 +5,7 @@
  * Return: returns 0.
  * environ.c
  */
-int processEnvironVariable(info_t *info)
+int processEnvironVariable(DataInfo_tii *info)
 {
 	print_string_nodes(info->env);
 	return (0);

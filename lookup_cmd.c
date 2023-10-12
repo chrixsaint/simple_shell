@@ -11,7 +11,7 @@
  *
  * Return: void.
  */
-void lookup_cmd(info_t *info)
+void lookup_cmd(DataInfo_tii *info)
 {
 	int aii, kaii;
 	char *path;

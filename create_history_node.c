@@ -13,9 +13,9 @@
  * Return: Always 0.
  */
 
-int create_history_node(info_t *info, char *buf, int linecount)
+int create_history_node(DataInfo_tii *info, char *buf, int linecount)
 {
-	list_t *nnodde;
+	leest_ti *nnodde;
 
 	nnodde = NULL;
 	if (info->history)
