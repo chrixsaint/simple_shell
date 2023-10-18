@@ -12,10 +12,7 @@ int main(int ac, char **av)
 	DataInfo_tii informat[] = { INFO_INIT };
 	int effd = 2;
 
-	asm ("mov %1, %0\n\t"
-			"add $3, %0"
-			: "=r" (effd)
-			: "r" (effd));
+	effd = effd + 3;
 
 	if (ac == 2)
 	{
