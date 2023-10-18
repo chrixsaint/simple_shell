@@ -41,11 +41,13 @@ extern char **environ;
 
 
 /**
- * struct leest_strng - my linked list
- * @num: the number field
- * @str: a string
- * @next: points to the next node  liststr  leest_strng
+ * struct leest_strng - Structure representing a linked list node.
+ *
+ * @num: The number field.
+ * @str: A string.
+ * @next: Points to the next node in the linked list.
  */
+
 typedef struct leest_strng
 {
 	int num;
@@ -54,30 +56,36 @@ typedef struct leest_strng
 } leest_ti;
 
 /**
- *struct UserInfo - contains pseudo-arguements to pass into a function,
- *		allowing uniform prototype for function pointer struct
- *@arg: a string generated from getline containing arguements
- *@argv: an array of strings generated from arg
- *@path: a string path for the current command
- *@argc: the argument count
- *@line_count: the error count
- *@err_num: the error code for exit()s
- *@linecount_flag: if on count this line of input
- *@fname: the program filename
- *@env: linked list local copy of environ
- *@environ: custom modified copy of environ from LL env
- *@history: the history node
- *@alias: the alias node
- *@env_changed: on if environ was changed
- *@status: the return status of the last exec'd command
- *@cmd_buf: address of pointer to cmd_buf, on if chaining
- *@cmd_buf_type: CMD_type ||, &&, ;
- *@readfd: the fd from which to read line input
- *@histcount: the history line number count passinfo  UserInfo.
+ * struct UserInfo - Structure containing parameters for function arguments,
+ *                   ensuring a consistent prototype for function pointers.
+ *
+ * @arg: String generated from `getline` containing arguments.
+ * @argv: Array of strings derived from `arg`.
+ * @path: Path to the current command.
+ * @argc: Argument count.
+ * @line_count: Count of errors.
+ * @err_num: Error code for `exit()` calls.
+ * @linecount_flag: Indicates whether to count this input line.
+ * @fname: Program filename.
+ * @env: Linked list representing a local copy of environ.
+ * @environ: Custom modified copy of environ from the LL env.
+ * @history: History node.
+ * @alias: Alias node.
+ * @env_changed: Flag indicating changes in environ.
+ * @status: Return status of the last executed command.
+ * @cmd_buf: Address of a pointer to cmd_buf, used for chaining.
+ * @cmd_buf_type: Command type (e.g., `CMD_type`, `||`, `&&`, `;`).
+ * @readfd: File descriptor for reading line input.
+ * @histcount: History line number count associated with UserInfo.
+ *@mrge_varsn:
+ *@merge_t: the merger_t
+ *@merge_r: the merge_r
+ *@merge_h: the merge_h
+ *@mrge_varsn: the merge_varsn
  */
 typedef struct UserInfo
 {
-	int mrge_varsn; 
+	int mrge_varsn;
 	char *arg;
 	char **argv;
 	char *path;
@@ -102,14 +110,17 @@ typedef struct UserInfo
 } DataInfo_tii;
 
 #define INFO_INIT \
-{0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-	0, 0, 0, NULL}
-
+{0, NULL, NULL, NULL, 0, \
+0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+0, 0, 0, NULL}
 /**
- *struct cmdHandler - contains a builtin string and related function
- *@type: the builtin command flag
- *@func: the function  builtin_table cmdHandler
+ * struct cmdHandler - Structure containing a builtin command string and
+ *                    its related function.
+ *
+ * @type: Builtin command flag.
+ * @func: Function from the builtin_table associated with cmdHandler.
  */
+
 typedef struct cmdHandler
 {
 	char *type;
