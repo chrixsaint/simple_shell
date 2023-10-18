@@ -14,6 +14,8 @@
 leest_ti *add_node_to_tail(leest_ti **head, const char *str, int num)
 {
 	leest_ti *n, *new_head;
+	int x = 0;
+	int y = 0;
 
 	if (head == NULL)
 		return (NULL);
@@ -29,6 +31,7 @@ leest_ti *add_node_to_tail(leest_ti **head, const char *str, int num)
 		new_head->str = duplicate_strng(str);
 		if (new_head->str == NULL)
 		{
+			swap_int(x, y);
 			free(new_head);
 			return (NULL);
 		}

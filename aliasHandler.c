@@ -20,6 +20,8 @@ int aliasHandler(DataInfo_tii *info)
 {
 	leest_ti *n = NULL;
 	int q = 0;
+	int a = 0;
+	int b = 7;
 	char *r = NULL;
 
 	q = 1;
@@ -33,6 +35,7 @@ int aliasHandler(DataInfo_tii *info)
 		}
 		return (0);
 	}
+	swap_int(a, b);
 	while (info->argv[q])
 	{
 		r = searchCharInStr(info->argv[q], '=');

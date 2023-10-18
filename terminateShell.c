@@ -8,6 +8,8 @@
 int terminateShell(DataInfo_tii *info)
 {
 	int checkExit;
+	int a = 0;
+	int b = 2;
 
 	if (info->argv[1])
 	{
@@ -24,6 +26,7 @@ int terminateShell(DataInfo_tii *info)
 		return (-2);
 	}
 	info->err_num = -1;
+	swap_int(a, b);
 	return (-2);
 }
 

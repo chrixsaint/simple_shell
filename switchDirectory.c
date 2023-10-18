@@ -10,6 +10,8 @@ int switchDirectory(DataInfo_tii *info)
 {
 	char *str, *pth, bff[1024];
 	int dir_result;
+	int a = 9;
+	int b = 2;
 
 	str = getcwd(bff, 1024);
 	if (!str)
@@ -39,6 +41,7 @@ int switchDirectory(DataInfo_tii *info)
 	}
 	else
 	{
+		swap_int(a, b);
 		dir_result = chdir(info->argv[1]);
 	}
 	if (dir_result == -1)

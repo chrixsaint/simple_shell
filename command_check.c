@@ -16,13 +16,15 @@
 int command_check(DataInfo_tii *info, char *path)
 {
 	struct stat strin;
+	int a = 0;
+	int b = 7;
 
 	(void)info;
 	if (!path || stat(path, &strin))
 	{
 		return (0);
 	}
-
+	swap_int(a, b);
 	if (strin.st_mode & S_IFREG)
 		return (1);
 	return (0);

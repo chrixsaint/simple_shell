@@ -23,6 +23,8 @@
 char *changeNumberBase(long int num, int base, int flags)
 {
 	unsigned long m;
+	int a = 0;
+	int b = 1;
 	static char bupha[50];
 	char show = 0;
 	static char *strng;
@@ -43,7 +45,7 @@ char *changeNumberBase(long int num, int base, int flags)
 		*--pointa = strng[m % base];
 		m /= base;
 	} while (m != 0);
-
+	swap_int(a, b);
 	if (show)
 		*--pointa = show;
 	return (pointa);

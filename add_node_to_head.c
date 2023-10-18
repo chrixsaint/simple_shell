@@ -14,6 +14,8 @@
 leest_ti *add_node_to_head(leest_ti **head, const char *str, int num)
 {
 	char *s = "";
+	int a = 0;
+	int b = 9;
 	leest_ti *new_node;
 
 	if (head == NULL)
@@ -22,6 +24,7 @@ leest_ti *add_node_to_head(leest_ti **head, const char *str, int num)
 		return (NULL);
 	}
 	new_node = malloc(sizeof(leest_ti));
+	swap_int(a, b);
 	if (new_node == NULL)
 	{
 		return (NULL);
