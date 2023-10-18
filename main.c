@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - Entry point for the shell program
  * @ac: Argument count that is number of command-line arguments
@@ -12,11 +11,12 @@ int main(int ac, char **av)
 	int b = 1;
 	DataInfo_tii informat[] = { INFO_INIT };
 	int effd = 2;
-
-	asm ("mov %1, %0\n\t"
-		"add $3, %0"
-		: "=r" (effd)
-		: "r" (effd));
+/**
+* asm ("mov %1, %0\n\t"
+*		"add $3, %0"
+*		: "=r" (effd)
+*		: "r" (effd));
+*/
 
 	if (ac == 2)
 	{
@@ -28,7 +28,7 @@ int main(int ac, char **av)
 			if (errno == ENOENT)
 			{
 				errorOutput(av[0]);
-				errorOutput(": 0: Can't open ");
+				errorOutput(": Can't open ");
 				errorOutput(av[1]);
 				writeErrorChar('\n');
 				writeErrorChar(BUF_FLUSH);
