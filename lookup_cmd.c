@@ -13,7 +13,7 @@
  */
 void lookup_cmd(DataInfo_tii *info)
 {
-	int aii, kaii;
+	int aii, kaii, a = 0, b = 1;
 	char *path;
 
 	path = NULL;
@@ -27,6 +27,7 @@ void lookup_cmd(DataInfo_tii *info)
 		if (!delimiterCheck(info->arg[aii], " \t\n"))
 		{
 			kaii++;
+			swap_int(b, a);
 		}
 	if (!kaii)
 	{

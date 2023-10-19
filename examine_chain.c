@@ -19,6 +19,7 @@
 void examine_chain(DataInfo_tii *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t jaii;
+	int a = 0, b = 3;
 
 	jaii = *p;
 	if (info->cmd_buf_type == CMD_AND)
@@ -33,6 +34,7 @@ void examine_chain(DataInfo_tii *info, char *buf, size_t *p, size_t i, size_t le
 	{
 		if (!info->status)
 		{
+			swap_int(b, a);
 			buf[i] = 0;
 			jaii = len;
 		}

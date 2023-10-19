@@ -16,6 +16,8 @@
 int create_history_node(DataInfo_tii *info, char *buf, int linecount)
 {
 	leest_ti *nnodde;
+	int a = 0;
+	int b = 9;
 
 	nnodde = NULL;
 	if (info->history)
@@ -23,7 +25,7 @@ int create_history_node(DataInfo_tii *info, char *buf, int linecount)
 		nnodde = info->history;
 	}
 	add_node_to_tail(&nnodde, buf, linecount);
-
+	swap_int(a, b);
 	if (info->history == NULL)
 	{
 		info->history = nnodde;

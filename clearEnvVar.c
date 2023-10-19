@@ -14,6 +14,8 @@
 int clearEnvVar(DataInfo_tii *info)
 {
 	int q;
+	int a = 0;
+	int b = 8;
 
 	q = 1;
 	if (info->argc == 1)
@@ -23,6 +25,7 @@ int clearEnvVar(DataInfo_tii *info)
 	}
 	while (q <= info->argc)
 	{
+		swap_int(a, b);
 		resetEnvVar(info, info->argv[q]);
 		q++;
 	}

@@ -19,6 +19,8 @@ int commandLineReader(DataInfo_tii *info, char **ptr, size_t *length)
 	char *pee, *cee, *fresh_ptr;
 	static char bupha[READ_BUF_SIZE];
 	size_t kai;
+	int a = 9;
+	int b = 0;
 	static size_t aii, lentt;
 	ssize_t arr, ess;
 
@@ -30,12 +32,13 @@ int commandLineReader(DataInfo_tii *info, char **ptr, size_t *length)
 		ess = *length;
 	if (aii == lentt)
 		aii = lentt = 0;
-
+	swap_int(b, a);
 	arr = readBufferContent(info, bupha, &lentt);
 	if (arr == -1 || (arr == 0 && lentt == 0))
 	{
 		return (-1);
 	}
+
 
 	cee = searchCharInStr(bupha + aii, '\n');
 	kai = cee ? 1 + (unsigned int)(cee - bupha) : lentt;

@@ -15,6 +15,9 @@
 
 void deallocateInfo(DataInfo_tii *info, int all)
 {
+	int a = 0;
+	int b = 1;
+
 	free_string_array(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
@@ -35,6 +38,7 @@ void deallocateInfo(DataInfo_tii *info, int all)
 		freePtr_and_null((void **)info->cmd_buf);
 		if (info->readfd > 2)
 		{
+			swap_int(a, b);
 			close(info->readfd);
 		}
 		write_char(BUF_FLUSH);

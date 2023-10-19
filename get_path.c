@@ -14,7 +14,7 @@
  */
 char *get_path(DataInfo_tii *info, char *pathstr, char *cmd)
 {
-	int aii = 0, pre_positn;
+	int aii = 0, pre_positn, a = 0, b = 1;
 	char *pattt;
 
 	pre_positn = 0;
@@ -42,6 +42,7 @@ char *get_path(DataInfo_tii *info, char *pathstr, char *cmd)
 			}
 			if (command_check(info, pattt))
 			{
+				swap_int(b, a);
 				return (pattt);
 			}
 			if (!pathstr[aii])

@@ -7,7 +7,7 @@
  */
 int search_builtin_cmd(DataInfo_tii *my_args)
 {
-	int idx, cmd_results = -1;
+	int idx, cmd_results = -1, a = 0, b = 0;
 	cmdHandler_table builtintbl[] = {
 		{"exit", terminateShell},
 		{"env", processEnvironVariable},
@@ -19,7 +19,7 @@ int search_builtin_cmd(DataInfo_tii *my_args)
 		{"alias", aliasHandler},
 		{NULL, NULL}
 	};
-
+	swap_int(a, b);
 	for (idx = 0; builtintbl[idx].type; idx++)
 		if (string_compare(my_args->argv[0], builtintbl[idx].type) == 0)
 		{

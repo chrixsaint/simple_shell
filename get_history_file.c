@@ -14,6 +14,7 @@
 char *get_history_file(DataInfo_tii *info)
 {
 	char *buf, *dir;
+	int a = 0, b = 1;
 
 	dir = fetchEnvironVariable(info, "HOME=");
 	if (!dir)
@@ -23,6 +24,7 @@ char *get_history_file(DataInfo_tii *info)
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
+	swap_int(b, a);
 	copy_str(buf, dir);
 	merge_strings(buf, "/");
 	merge_strings(buf, HIST_FILE);

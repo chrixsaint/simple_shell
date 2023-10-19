@@ -11,10 +11,13 @@
  */
 void eraseInfo(DataInfo_tii *info)
 {
+	int a = 0, b = 2;
+
 	info->arg = NULL;
 	info->argv = NULL;
 	info->path = NULL;
 	info->argc = 0;
+	swap_int(b, a);
 }
 
 

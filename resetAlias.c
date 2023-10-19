@@ -10,13 +10,14 @@ int resetAlias(DataInfo_tii *info, char *str)
 {
 	char *my_ptr;
 	char ctr;
-	int result;
+	int result, a = 0, b = 1;
 
 	my_ptr = searchCharInStr(str, '=');
 	if (!my_ptr)
 	{
 		return (1);
 	}
+	swap_int(b, a);
 	ctr = *my_ptr;
 	*my_ptr = 0;
 	result = delete_node_at_index(&(info->alias),

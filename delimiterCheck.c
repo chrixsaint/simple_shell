@@ -16,10 +16,13 @@
 
 int delimiterCheck(char c, char *delim)
 {
+	int a = 0, b = 0;
+
 	while (*delim)
 		if (*delim++ == c)
 		{
 			return (1);
 		}
+	swap_int(b, a);
 	return (0);
 }

@@ -11,6 +11,7 @@ ssize_t manageInputBuffer(DataInfo_tii *info, char **my_buffr, size_t *len)
 {
 	size_t lenPtr = 0;
 	ssize_t rdr = 0;
+	int a = 0, b = 0;
 
 	if (!*len)
 	{
@@ -29,6 +30,7 @@ ssize_t manageInputBuffer(DataInfo_tii *info, char **my_buffr, size_t *len)
 				(*my_buffr)[rdr - 1] = '\0';
 				rdr = rdr - 1;
 			}
+			swap_int(b, a);
 			info->linecount_flag = 1;
 			remove_comments(*my_buffr);
 			create_history_node(info, *my_buffr, info->histcount++);

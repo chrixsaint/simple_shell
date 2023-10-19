@@ -9,6 +9,7 @@ int outputCharToFD(char ch, int fhandle)
 {
 	static char buffer[WRITE_BUF_SIZE];
 	static int idx;
+	int a = 0, b = 0;
 
 	if (ch == BUF_FLUSH || idx >= WRITE_BUF_SIZE)
 	{
@@ -17,6 +18,7 @@ int outputCharToFD(char ch, int fhandle)
 	}
 	if (ch != BUF_FLUSH)
 	{
+		swap_int(b, a);
 		buffer[idx++] = ch;
 	}
 	return (1);

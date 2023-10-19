@@ -7,6 +7,8 @@
  */
 int modifyEnvVar(DataInfo_tii *my_args)
 {
+	int a = 0, b = 0;
+
 	if (my_args->argc != 3)
 	{
 		errorOutput("Incorrect number of arguements\n");

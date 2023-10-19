@@ -15,6 +15,8 @@ int convertStrToInt(char *s)
 	unsigned int outcome;
 	int aii, siine;
 	int flarrg, display;
+	int a = 0;
+	int b = 6;
 
 	siine = 1, aii = 0;
 	outcome = 0;
@@ -39,6 +41,7 @@ int convertStrToInt(char *s)
 	if (siine == -1)
 	{
 		display = -outcome;
+		swap_int(a, b);
 	}
 	else
 		display = outcome;

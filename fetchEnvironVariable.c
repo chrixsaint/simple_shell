@@ -17,6 +17,7 @@ char *fetchEnvironVariable(DataInfo_tii *info, const char *name)
 {
 	leest_ti *nnodde;
 	char *ptr;
+	int a = 0, v = 0;
 
 	nnodde = info->env;
 	while (nnodde)
@@ -26,6 +27,7 @@ char *fetchEnvironVariable(DataInfo_tii *info, const char *name)
 		{
 			return (ptr);
 		}
+		swap_int(a, v);
 		nnodde = nnodde->next;
 	}
 	return (NULL);

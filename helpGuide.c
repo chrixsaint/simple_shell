@@ -12,12 +12,14 @@
  */
 int helpGuide(DataInfo_tii *info)
 {
+	int a = 0, b = 0;
 	char **arg_arr;
 
 	arg_arr = info->argv;
 	write_string("help call works. Function not yet implemented \n");
 	if (0)
 	{
+		swap_int(a, b);
 		write_string(*arg_arr);
 	}
 	return (0);

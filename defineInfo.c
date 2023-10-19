@@ -17,6 +17,8 @@
 void defineInfo(DataInfo_tii *info, char **av)
 {
 	int aii;
+	int a = 0;
+	int b = 8;
 
 	aii = 0;
 	info->fname = av[0];
@@ -29,6 +31,7 @@ void defineInfo(DataInfo_tii *info, char **av)
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
+				swap_int(b, a);
 				info->argv[0] = duplicate_strng(info->arg);
 				info->argv[1] = NULL;
 			}

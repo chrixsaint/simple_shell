@@ -12,8 +12,12 @@
 
 int checkAlphabetic(int c)
 {
+	int a = 0;
+	int b = 5;
+
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 	{
+		swap_int(b, a);
 		return (1);
 	}
 	else
