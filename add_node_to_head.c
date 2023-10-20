@@ -6,7 +6,7 @@
  * @str: The string to be stored in the new node.
  * @num: Node index used by history (if applicable).
  *
- * This function creates a new node and inserts it at the start of the list.
+ * This function creates a new node and inserts it at the start of the list
  *
  * Return: A pointer to the newly created node, or NULL on failure.
  */
