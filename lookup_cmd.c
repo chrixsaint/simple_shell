@@ -7,7 +7,7 @@
  *
  * This function attempts to locate and execute a command specified in
  * the argument vector within the directories listed in the
- * PATH environment variable.
+ * PATH environment variable
  *
  * Return: void.
  */
